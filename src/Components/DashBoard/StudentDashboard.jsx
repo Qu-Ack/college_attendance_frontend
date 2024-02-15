@@ -40,7 +40,7 @@ function StudentDashboard() {
                     <div className="department">CSE</div>
                 </div>
             </section>
-
+            <Link to="/reader">Scan</Link>
             <section className="table panel">
                 <div className="heading">
                     <span className="code">Code</span>
