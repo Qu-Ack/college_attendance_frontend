@@ -1,3 +1,10 @@
-html {
-  background-color: white;
+:root {
+  --primaryColor: #00BBAA;
+  --panelColor: #9dd5d461;
+  --menuColor: #505050;
+  --textColor: #000000;
+  --textAltColor: #ffffff;
+  --paddingGap: 0.9em;
+  --menuTransition: 0.5s;
 }
+

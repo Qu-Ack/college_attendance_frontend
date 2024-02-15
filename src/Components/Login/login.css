@@ -1,0 +1,99 @@
+.logOut {
+    background-color: var(--menuColor);
+    color: #FFFFFF;
+    border: 0;
+    padding: 0 2em;
+    border-radius: 10em;
+}
+
+/* Log In */
+.mainPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 0.3em;
+    height: 400px;
+    width: 320px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.185);
+    /* background-color: #ffffffa5; */
+    margin-bottom: 3em; /*remove to perfectly center*/
+}
+
+
+.loginContainer .loginText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.loginContainer .loginInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(2*var(--paddingGap));
+    gap: 15px;
+}
+
+.loginContainer .loginInput .email,
+.loginContainer .loginInput .password
+{
+    display: flex;
+    flex-direction: column; 
+    gap: 7px;
+}
+
+.mainPage .loginContainer .loginInput .text {
+    font-size: 20px;
+}
+
+.mainPage .loginContainer .loginInput .box {
+    border: 3px solid #ebebeb;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    height: 35px;
+    font-size: 1.1em;
+}
+
+.mainPage .loginContainer .loginInput .box:focus {
+    outline: 0;
+    border-bottom: 3px solid orange;
+} 
+
+.mainPage .loginContainer .loginButton {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 3em;
+    border: 2px solid var(--primaryColor);
+    border-radius: 0.5em;
+    width: 50px;
+}
+
+.mainPage .loginContainer .loginButton:focus {
+    border: 3px solid orange;
+}
+
+
+
+
+
+
+
+
+
+

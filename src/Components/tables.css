@@ -1,0 +1,94 @@
+/*Table*/
+.table {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: calc(0.5*var(--paddingGap));
+    width:97vw;
+}
+
+.table > div,
+.table > a {
+    display: flex;
+    padding: calc(0.5*var(--paddingGap));
+}
+
+.table > a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+.table > .heading {
+    font-weight: 600;
+    border-bottom: 1px solid #000000;
+}
+
+/*Teacher Dashboard Table*/
+.table > a > .subject {
+    transition: 0.3s;
+}
+
+.table > a > .subject:hover {
+    transform: scale(1.012);
+}
+
+.table .code {
+    width: 4.5em;
+}
+
+.table .subject {
+    flex: 1;
+}
+
+.table .semester {
+    justify-content: flex-start;
+    width: 3em;
+}
+
+
+/*Subject Page Table*/
+.table > a > .lectureTitle {
+    transition: 0.3s;
+}
+.table > a > .lectureTitle:hover {
+    transform: scale(1.012);
+}
+
+@media only screen and (max-width: 395px) {
+    .table > a > .lectureTitle {
+        word-break: break-all;
+    }
+}
+
+.table .lectureNumber,
+.table .section {
+    width: 2.5em;
+    /*Later change Sec. to Section using media query for desktop*/
+}
+
+.table .lectureTitle {
+    flex: 1;
+}
+
+.table .date {
+    width: 6em;
+}
+
+.table .time {
+    width: 3em;
+}
+
+
+/*Lecture Attendance Table*/
+.table .serialNumber {
+    width: 2.5em;
+    /*Later change Sec. to Section using media query for desktop*/
+}
+
+.table .studentID {
+    flex: 1;
+}
+
+.table .attendance {
+    width: 6em;
+}
