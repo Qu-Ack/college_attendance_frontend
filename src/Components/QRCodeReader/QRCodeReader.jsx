@@ -17,9 +17,9 @@ function QRCodeReader() {
     };
     useEffect(() => {
 
-        const socket = io("https://collegeattendance-production.up.railway.app/");
-        setSocket(socket);
-        console.log(socket)
+        const skt = io("https://collegeattendance-production.up.railway.app/");
+        setSocket(skt);
+        console.log(skt)
 
         const scanner = new Html5QrcodeScanner('reader', {
             qrbox: {
