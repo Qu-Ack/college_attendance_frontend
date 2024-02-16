@@ -15,6 +15,11 @@ import LandingPage from './Components/LandingPage/LandingPage.jsx'
 import StudentLogin from './Components/Login/StudentLogin.jsx'
 import StudentDashboard from './Components/DashBoard/StudentDashboard.jsx'
 import Nav from './Components/Nav/Nav.jsx'
+import AdminLogin from './Components/Login/AdminLogin.jsx'
+import AdminDashBoard from './Components/DashBoard/AdminDashboard.jsx'
+import CreateTeacher from './Components/CreateTeacher/CreateTeacher.jsx'
+import AddStudentToClass from './Components/AssignStudentToClass/AssignStudentToClass.jsx'
+import AssignTeacherToClass from './Components/AssignteacToClass/AssignTeacherToClass.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -54,6 +59,30 @@ const router = createBrowserRouter([
       {
         path:'/studdashboard/:studid',
         element:<StudentDashboard/>
+      },
+      {
+        path:'/adminlogin',
+        element:<AdminLogin/>
+      }, {
+        path:'/admindashboard',
+        element:<AdminDashBoard/>
+      }
+
+      ,{
+        path:'/admin/createclass',
+        element:<CreateClass/>
+      },
+      {
+        path:'/admin/createteacher',
+        element:<CreateTeacher/>
+      },
+      {
+        path:'/admin/assignstudenttoclass',
+        element:<AddStudentToClass/>
+      },
+      {
+        path:'/admin/assignteachertoclass',
+        element:<AssignTeacherToClass/>
       }
     ]
   },
