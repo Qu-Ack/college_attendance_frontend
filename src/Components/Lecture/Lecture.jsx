@@ -10,7 +10,7 @@ function Lecture() {
     const [lectureData, setLectureData] = useState({})
     const [count, setCount] = useState(1)
     const [classData, setClassData] = useState({})
-    const [lecid, setLecId] = useState(`${lectureid}+asdf`)
+    const [lecid, setLecId] = useState(`${lectureid}+${generateRandomString(20)}`)
     const [qrValue, setQrValue] = useState("")
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
