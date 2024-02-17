@@ -43,21 +43,25 @@ function QRCodeReader() {
                 }, {
                     headers: myHeaders
                 })
-                if (response.data.error == 'undefined') {
-                    return (
-                        <>
-                            <h1>{response.data.message}</h1>
-                            <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
-                        </>
-                    )
-                } else {
-                    return (
-                        <>
-                        <h1>{response.data.error}</h1>
-                        <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
-                        </>
-                    )
+
+                if (response.status == 500) {
+                    navigate('/invalidqr')
                 }
+                // if (response.data.error == 'undefined') {
+                //     return (
+                //         <>
+                //             <h1>{response.data.message}</h1>
+                //             <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
+                //         </>
+                //     )
+                // } else {
+                //     return (
+                //         <>
+                //         <h1>{response.data.error}</h1>
+                //         <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
+                //         </>
+                //     )
+                // }
 
                 // console.log(response.data)
             }

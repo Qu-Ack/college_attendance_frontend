@@ -23,6 +23,7 @@ import AssignTeacherToClass from './Components/AssignteacToClass/AssignTeacherTo
 import CreateStudent from './Components/CreateStudent/CreateStudent.jsx'
 import AboutUs from './Components/AboutUs/AboutUs.jsx'
 import AdminNav from './Components/AdminNaV/AdminNav.jsx'
+import InvalidQr from './Components/ErrorPages/InvalidQr.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path:'/aboutus',
         element:<AboutUs/>
+      },
+      {
+        path:'/invalidqr',
+        element:<InvalidQr/>
       }
     ]
   },
