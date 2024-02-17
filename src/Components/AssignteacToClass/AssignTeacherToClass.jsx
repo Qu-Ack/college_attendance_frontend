@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import axios from "axios";
 
 
 function AssignTeacherToClass() {
@@ -23,8 +24,11 @@ function AssignTeacherToClass() {
                 const classesResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_classes' , {
                     headers:myHeaders
                 });
-                setTeachers(teachersResponse.data);
-                setClasses(classesResponse.data);
+                setTeachers(teachersResponse.data.teachers);
+                setClasses(classesResponse.data.classes);
+
+                console.log(teachersResponse.data);
+                console.log(classesResponse.data)
             } catch (error) {
                 console.error('Error fetching teachers and classes:', error);
             }
@@ -52,8 +56,8 @@ function AssignTeacherToClass() {
                 <label>Select Teacher: </label>
                 <select value={selectedTeacher} onChange={(e) => setSelectedTeacher(e.target.value)}>
                     <option value="">Select a Teacher</option>
-                    {teachers.map((teacher) => (
-                        <option key={teacher._id} value={teacher._id}>{teacher.name}</option>
+                    {teachers && teachers.map((teacher) => (
+                        <option key={teacher._id} value={teacher._id}>{teacher.teacherName}</option>
                     ))}
                 </select>
             </div>
@@ -62,7 +66,7 @@ function AssignTeacherToClass() {
                 <select value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
                     <option value="">Select a Class</option>
                     {classes.map((cls) => (
-                        <option key={cls._id} value={cls._id}>{cls.name}</option>
+                        <option key={cls._id} value={cls._id}>{cls.classCode}</option>
                     ))}
                 </select>
             </div>
