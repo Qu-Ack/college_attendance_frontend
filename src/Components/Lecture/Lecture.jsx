@@ -73,7 +73,7 @@ function Lecture() {
                 request()
                 console.log(emmitdata)
                 setLecId(`${emmitdata}+${generateRandomString(20)}`);
-            });
+            }); 
         }
 
         return () => {

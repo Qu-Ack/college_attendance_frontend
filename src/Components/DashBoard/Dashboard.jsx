@@ -14,6 +14,7 @@ import profilePic from './images/temp.png'
 function DashBoard() {
     const [myclasses, setMyClasses] = useState([]);
     const [teacher, setTeacher] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const { id } = useParams();
     const baseurl = `https://collegeattendance-production.up.railway.app/api/class/${id}`
@@ -26,9 +27,11 @@ function DashBoard() {
     useEffect(() => {
         async function request() {
             try {
+                setLoading(true)
                 const response = await axios.get(baseurl, {
                     headers: myHeaders
                 });
+                setLoading(false)
                 console.log(response.data);
                 setMyClasses(response.data.classes);
                 setTeacher(response.data.teacher)
@@ -39,6 +42,12 @@ function DashBoard() {
         }
         request();
     }, []);
+
+    if (loading) {
+        return(
+            <h1>Loading ... </h1>
+        )
+    }
 
     return (
         <>
@@ -70,7 +79,7 @@ function DashBoard() {
                     {
                         myclasses.map(myclass => {
                             return (
-                                <Link className="entry" to={`/myclasses/${myclass._id}`}>c
+                                <Link className="entry" to={`/myclasses/${myclass._id}`}>
                                     <span className="code">{myclass.classCode}</span>
                                     <span className="subject">{myclass.className}</span>
                                     <span className="semester">1</span>

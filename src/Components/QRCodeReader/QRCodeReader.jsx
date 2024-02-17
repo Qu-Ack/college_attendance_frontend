@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 // import {v4 as uuidv4} from 'uuid'
 // import Randomstring from "randomstring";
+import './qr_reader.css'
 import io from 'socket.io-client'
 
 function QRCodeReader() {
@@ -23,8 +24,8 @@ function QRCodeReader() {
 
         const scanner = new Html5QrcodeScanner('reader', {
             qrbox: {
-                width: 200,
-                height: 200
+                width: 500,
+                height: 500,
             },
             fps: 5
         })
@@ -82,7 +83,7 @@ function QRCodeReader() {
     return (
         <div className="qrreader">
             {
-                scanResult ? <div>Success: {scanResult}</div> : <div id="reader" style={{ "width": "900px", "height": "900px" }}></div>
+                scanResult ? <div>Success: {scanResult}</div> : <div id="reader" className="QrReader-Student"></div>
             }
         </div>
         // <input type="text" onClick={handleClick}/>

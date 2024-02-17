@@ -9,6 +9,7 @@ import '../tables.css'
 function StudentDashboard() {
     const [data, setData] = useState({});
     const { studid } = useParams();
+    const [loading , setLoading] = useState(false)
 
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
@@ -17,9 +18,11 @@ function StudentDashboard() {
     useEffect(() => {
         async function request() {
             try {
+                setLoading(true)
                 const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/student/${studid}`, {
                     headers: myHeaders
                 })
+                setLoading(false)
                 console.log(response.data.stud)
                 setData(response.data.stud)
 
@@ -29,6 +32,10 @@ function StudentDashboard() {
         }
         request()
     }, [])
+
+    if (loading) {
+        return <h1>Loading ...</h1>
+    }
 
     return (
         <section className="mainPage">

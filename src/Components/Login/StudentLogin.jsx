@@ -33,7 +33,7 @@ function StudentLogin() {
             console.log(response)
             setLoading(false);
             if (typeof response.data.errors != 'undefined') {
-                setError(response.data.errors.errors[0].msg);
+                setError(response.data.errors);
             } else if (typeof response.data.token != 'undefined') {
                 localStorage.token = response.data.token;
                 const decoded = jwtDecode(localStorage.token)
@@ -77,6 +77,11 @@ function StudentLogin() {
                     </div>
                 </form>
                 <button type="submit" className="loginButton" onClick={handleSubmit}>Login</button>
+                <div className="user-text">
+                    {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+                    <div className="loading">{loading && "Loading .."}</div>
+                    <div className="error">{error}</div>
+                </div>
             </div>
         </div>
     )
