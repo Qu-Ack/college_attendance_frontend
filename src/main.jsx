@@ -27,10 +27,6 @@ const router = createBrowserRouter([
     element: <Nav/>,
     children:[
       {
-        index:true,
-        element:<LandingPage/>
-      },
-      {
         path:'/dashboard/:id',
         element:<DashBoard/>
       },
@@ -50,7 +46,7 @@ const router = createBrowserRouter([
         element:<QRCodeReader/>
       }
       ,{
-        path:'/studentlogin',
+        index:true,
         element: <StudentLogin/>
       },
       {

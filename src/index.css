@@ -1,10 +1,17 @@
-:root {
-  --primaryColor: #00BBAA;
-  --panelColor: #9dd5d461;
-  --menuColor: #505050;
-  --textColor: #000000;
-  --textAltColor: #ffffff;
-  --paddingGap: 0.9em;
-  --menuTransition: 0.5s;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+:root {
+    --menuColor: #505050;
+    --textColor: #000000;
+    --textAltColor: #ffffff;
+    --paddingGap: 0.9em;
+    --menuTransition: 0.5s;
+
+    --studentColor: #00BBAA;
+    --studentPanelColor: #85b6b556;
+    --teacherColor: #149712;
+    --teacherPanelColor: #478b4556;
+    --adminColor: #242424;
+    --adminPanelColor: #3a3a3a3a;
+}
