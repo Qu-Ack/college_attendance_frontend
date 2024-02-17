@@ -20,6 +20,7 @@ import AdminDashBoard from './Components/DashBoard/AdminDashboard.jsx'
 import CreateTeacher from './Components/CreateTeacher/CreateTeacher.jsx'
 import AddStudentToClass from './Components/AssignStudentToClass/AssignStudentToClass.jsx'
 import AssignTeacherToClass from './Components/AssignteacToClass/AssignTeacherToClass.jsx'
+import CreateStudent from './Components/CreateStudent/CreateStudent.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path:'/admin/assignteachertoclass',
         element:<AssignTeacherToClass/>
+      },
+      {
+        path:'/admin/createstudent',
+        element:<CreateStudent/>
       }
     ]
   },

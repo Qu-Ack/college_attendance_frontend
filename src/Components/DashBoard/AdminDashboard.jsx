@@ -10,6 +10,8 @@ function AdminDashBoard() {
         <Link to='/admin/assignstudenttoclass'>Assign Student TO Class</Link>
         <br />
         <Link to='/admin/assignteachertoclass'>Assign Teacher To Class</Link>
+        <br />
+        <Link to='/admin/createstudent'>Create Student</Link>
         </>
 
     )
