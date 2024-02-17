@@ -8,6 +8,8 @@ function Lecture() {
     const { classid, lectureid } = useParams();
     const [socket, setSocket] = useState(null)
     const [lectureData, setLectureData] = useState({})
+    const [count, setCount] = useState(1)
+    const [classData, setClassData] = useState({})
     const [lecid, setLecId] = useState(`${lectureid}+asdf`)
     const [qrValue, setQrValue] = useState("")
     const myHeaders = {
@@ -74,7 +76,7 @@ function Lecture() {
                 console.log(emmitdata)
                 setLecId(`${emmitdata.split("+")[0]}+${generateRandomString(20)}`);
                 // console.log(lecid)
-            }); 
+            });
         }
 
         return () => {
@@ -109,47 +111,156 @@ function Lecture() {
         return `${hours}:${minutes}`;
     }
     return (
-        // <QRCodeSVG value={lectureid}></QRCodeSVG>
-        <section className="mainPage">
-            <h1 className="subjectName">{lectureData.lectureCode} - {lectureData.lectureName}</h1>
-            <h2 className="lectureNumber">Lecture 1{/* - Section A*/}</h2>
-            {/* Insert your QR in this div */}
-            <div className="QRcontainer panel">
-                <div className="detailsContainer">
-                    <h3>Class details: </h3>
-                    <div className="line"></div>
-                    <div className="details">
-                        {/* <p>Section: <span>A</span></p> */}
-                        <p>Date: <span>{formatDate(lectureData.dateTime)}</span></p>
-                        <p>Time: <span>{formatTime(lectureData.dateTime)}</span></p>
+        // // <QRCodeSVG value={lectureid}></QRCodeSVG>
+        // <section className="mainPage">
+        //     <h1 className="subjectName">{lectureData.lectureCode} - {lectureData.lectureName}</h1>
+        //     <h2 className="lectureNumber">Lecture 1{/* - Section A*/}</h2>
+        //     {/* Insert your QR in this div */}
+        //     <div className="QRcontainer panel">
+        //         <div className="detailsContainer">
+        //             <h3>Class details: </h3>
+        //             <div className="line"></div>
+        //             <div className="details">
+        //                 {/* <p>Section: <span>A</span></p> */}
+        //                 <p>Date: <span>{formatDate(lectureData.dateTime)}</span></p>
+        //                 <p>Time: <span>{formatTime(lectureData.dateTime)}</span></p>
+        //             </div>
+        //         </div>
+        //         <QRCodeSVG className="QRcode" value={lecid} />
+        //     </div>
+        //     <button className="deleteLecture">Delete this Lecture</button>
+
+        //     <section className="table panel">
+        //         <div className="heading">
+        //             <span className="serialNumber">Sr. No.</span>
+        //             <span className="studentID">Student ID</span>
+        //             <span className="attendance">Attendance</span>
+        //         </div>
+
+        //         {
+        //             lectureData.attendance && lectureData.attendance.map((stud) => {
+        //                 return (
+        //                     <a className="entry" href="#">
+        //                         <span className="serialNumber">1</span>
+        //                         <span className="studentID">{stud.student.studentid}</span>
+        //                         {/* <span className="studentID">{stud.student.name}</span> */}
+        //                         <span className="attendance">{stud.status}</span>
+        //                     </a>
+        //                 )
+        //             })
+        //         }
+        //     </section>
+        // </section>
+        <div className="LAT_WRAPPER">
+            <section className="LAT_mainPage">
+                <h1 className="LAT_subjectName">ECT103 - Circuit Theory</h1>
+                <h2 className="LAT_lectureNumber">Lecture Number : 1</h2>
+                <div className="LAT_QRcontainer">
+                    <div className="LAT_detailsContainer">
+                        <h3>Class details:</h3>
+                        <div className="LAT_line"></div>
+                        <div className="LAT_details">
+                            <p>Date: <span>{formatDate(lectureData.dateTime)}</span></p>
+                            <p>Time: <span>{formatTime(lectureData.dateTime)}</span></p>
+                        </div>
                     </div>
+                    <QRCodeSVG className="QRcode" value={lecid} />
                 </div>
-                <QRCodeSVG className="QRcode" value={lecid} />
-            </div>
-            <button className="deleteLecture">Delete this Lecture</button>
+                <button className="LAT_deleteLecture">Delete this Lecture</button>
 
-            <section className="table panel">
-                <div className="heading">
-                    <span className="serialNumber">Sr. No.</span>
-                    <span className="studentID">Student ID</span>
-                    <span className="attendance">Attendance</span>
-                </div>
+                <section className="LAT_table">
+                    <div className="LAT_heading">
+                        <span className="LAT_serialNumber">Sr. No.</span>
+                        <span className="LAT_studentID">Student ID</span>
+                        <span className="LAT_attendance">Attendance</span>
+                    </div>
 
-                {
-                    lectureData.attendance && lectureData.attendance.map((stud) => {
-                        return (
-                            <a className="entry" href="#">
-                                <span className="serialNumber">1</span>
-                                <span className="studentID">{stud.student.studentid}</span>
-                                {/* <span className="studentID">{stud.student.name}</span> */}
-                                <span className="attendance">{stud.status}</span>
-                            </a>
-                        )
-                    })
-                }
+                    {lectureData.attendance && lectureData.attendance.map((stud, index) => (
+                        <a key={index} className="LAT_entry" href="#">
+                            <span className="LAT_serialNumber">{index + 1}</span>
+                            <span className="LAT_studentID">{stud.student.studentid}</span>
+                            <span className="LAT_attendance">{stud.status}</span>
+                        </a>
+                    ))}
+
+                    {/* Sample data */}
+                    <a className="LAT_entry" href="#">
+                        <span className="LAT_serialNumber">1</span>
+                        <span className="LAT_studentID">2023KUEC2016</span>
+                        <span className="LAT_attendance">Absent</span>
+                    </a>
+                    <a className="LAT_entry" href="#">
+                        <span className="LAT_serialNumber">2</span>
+                        <span className="LAT_studentID">2023KUEC2017</span>
+                        <span className="LAT_attendance"></span>
+                    </a>
+                    <a className="LAT_entry" href="#">
+                        <span className="LAT_serialNumber">3</span>
+                        <span className="LAT_studentID">2023KUEC2018</span>
+                        <span className="LAT_attendance">Unknown</span>
+                    </a>
+                </section>
             </section>
-        </section>
+        </div>
     )
+
+
+
+    // <section class="LAT_mainPage">
+    //     <h1 class="LAT_subjectName">ECT103 - Circuit Theory</h1>
+    //     <h2 class="LAT_lectureNumber">Lecture 1<!-- - Section A--></h2>
+    //     <!-- Insert your QR in this div -->
+    //     <div class="LAT_QRcontainer" >
+    //         <div class="LAT_detailsContainer">
+    //             <h3>Class details: </h3>
+    //             <div class="LAT_line"></div>
+    //             <div class="LAT_details">
+    //                 <!-- <p>Section: <span>A</span></p> -->
+    //                 <p>Date: <span>{formatDate(lectureData.dateTime)}</span></p>
+    //                 <p>Time: <span>{formatTime(lectureData.dateTime)}</span></p>
+    //             </div>
+    //         </div>
+    //         <QRCodeSVG className="QRcode" value={lecid} />
+    //     </div>
+    //     <button class="LAT_deleteLecture">Delete this Lecture</button>
+
+    //     <section class="LAT_table">
+    //         <div class="LAT_heading">
+    //             <span class="LAT_serialNumber">Sr. No.</span>
+    //             <span class="LAT_studentID">Student ID</span>
+    //             <span class="LAT_attendance">Attendance</span>
+    //         </div>
+
+    // {
+    //     lectureData.attendance && lectureData.attendance.map((stud) => {
+    //    setCount(count + 1)
+    //         return (
+    //             <a class="LAT_entry" href = "#">
+    //             <span class="LAT_serialNumber">{count}</span>
+    //             <span class="LAT_studentID">{stud.student.studentid}</span>
+    //             <span class="LAT_attendance">{stud.status}</span>
+    //         </a>
+    //         )
+    //     })
+    // }
+    //        
+    //         <a class="LAT_entry" href = "#">
+    //             <span class="LAT_serialNumber">1</span>
+    //             <span class="LAT_studentID">2023KUEC2016</span>
+    //             <span class="LAT_attendance">Absent</span>
+    //         </a>
+    //         <a class="LAT_entry" href = "#">
+    //             <span class="LAT_serialNumber">1</span>
+    //             <span class="LAT_studentID">2023KUEC2016</span>
+    //             <span class="LAT_attendance"></span>
+    //         </a>
+    //         <a class="LAT_entry" href = "#">
+    //             <span class="LAT_serialNumber">1</span>
+    //             <span class="LAT_studentID">2023KUEC2016</span>
+    //             <span class="LAT_attendance">Unknown</span>
+    //         </a>
+    //     </section>
+    // </section>
 }
 
 export default Lecture

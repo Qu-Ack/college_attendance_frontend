@@ -21,6 +21,7 @@ import CreateTeacher from './Components/CreateTeacher/CreateTeacher.jsx'
 import AddStudentToClass from './Components/AssignStudentToClass/AssignStudentToClass.jsx'
 import AssignTeacherToClass from './Components/AssignteacToClass/AssignTeacherToClass.jsx'
 import CreateStudent from './Components/CreateStudent/CreateStudent.jsx'
+import AboutUs from './Components/AboutUs/AboutUs.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path:'/admin/createstudent',
         element:<CreateStudent/>
+      },
+      {
+        path:'/aboutus',
+        element:<AboutUs/>
       }
     ]
   },

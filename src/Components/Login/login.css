@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/*Background*/
+body {}
+
+.login_header {
+    background-color: #5f0f01;
+}
+
+.login_loginContainer {
+    color: rgba(255, 255, 255, 0.849);
+}
+
+.login_loginContainer .login_loginText {
+    color: white;
+}
+
+.login_mainPage .login_loginContainer .login_loginInput .box {
+    color: white;
+}
+
+.login_navigation {
+    opacity: 0.9;
+}
+
+.STUDENT_WRAPPER {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Log In */
+.login_mainPage,
+#login_studentLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100vh;
+}
+
+/* #login_teacherLogin,
+#login_adminLogin {
+    display: none;
+} */
+
+.login_loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 0.5rem;
+    height: 450px;
+    width: 320px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.185);
+    margin-bottom: 3em;
+    /*remove to perfectly center*/
+}
+
+.login_loginContainer {
+    background-color: rgba(0, 0, 0, 0.482);
+    /* backdrop-filter: blur(1px); */
+}
+
+.login_loginContainer .login_loginText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.login_loginContainer .login_loginInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(2*var(--paddingGap));
+    gap: 15px;
+}
+
+.login_loginContainer .login_loginInput .login_email,
+.login_loginContainer .login_loginInput .login_password {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.login_mainPage .login_loginContainer .login_loginInput .login_text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.login_mainPage .login_loginContainer .login_loginInput .login_box {
+    border: 3px solid #c5c5c5;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    height: 35px;
+    font-size: 1.1em;
+    background: none;
+    color: white;
+}
+
+.login_mainPage .login_loginContainer .login_loginInput .login_box:focus {
+    outline: 0;
+    border-bottom: 3px solid orange;
+}
+
+.login_mainPage .login_loginContainer .login_loginButton {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--textAltColor);
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 3em;
+    border: 2px solid rgba(255, 255, 255, 0.849);
+    border-radius: 2em;
+    width: 50px;
+    font-size: 1em;
+}
+
+.login_mainPage .login_loginContainer .login_loginButton:hover {
+    border-color: orange;
+    background-color: rgba(255, 255, 255, 0.128);
+}
+
+.login_notA {
+    margin: 1.5em 0 0.5em 0;
+    align-self: center;
+}
+
+.login_otherLoginBtns {
+    display: flex;
+    gap: 3em;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.login_teacherLoginBtn,
+.login_adminLoginBtn,
+.login_studentLoginBtn {
+    cursor: pointer;
+}
+
+.login_teacherLoginBtn:hover,
+.login_adminLoginBtn:hover,
+.login_studentLoginBtn:hover {
+    color: orange;
+    text-decoration: orange underline;
+}
+
+.login_teacherLoginBtn:focus,
+.login_adminLoginBtn:focus,
+.login_studentLoginBtn:focus {
+    color: orange;
+    text-decoration: orange underline;
+}
+
+/*Menu*/
+
+:root {
+    --menuColor: #505050;
+    --textColor: #000000;
+    --textAltColor: #ffffff;
+    --paddingGap: 0.9em;
+    --menuTransition: 0.5s;
+
+    --studentColor: #00BBAA;
+    --studentPanelColor: #85b6b556;
+    --teacherColor: #149712;
+    --teacherPanelColor: #478b4556;
+    --adminColor: #242424;
+    --adminPanelColor: #3a3a3a3a;
+}
+
+body {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.login_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+}
+
+/* Menu icon to crosss icon*/
+.login_hamburger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    width: 27px;
+    z-index: 99;
+}
+
+.login_hamburger .login_navbar,
+.login_hamburger:after,
+.login_hamburger::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin: 4.5px 0;
+    transition: var(--menuTransition);
+}
+
+.login_hamburger.login_is-active:before {
+    transform: rotate(45deg) translate(3px, 11px);
+    background-color: #FFFFFF;
+}
+
+.login_hamburger.login_is-active:after {
+    transform: rotate(-45deg) translate(1px, -9px);
+    background-color: #FFFFFF;
+}
+
+.login_hamburger.login_is-active .login_navbar {
+    opacity: 0;
+}
+
+/**/
+
+/* Navigation Bar */
+.login_navigation {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    min-height: 100vh;
+    z-index: 98;
+    background-color: var(--menuColor);
+    padding-top: 3em;
+    transition: var(--menuTransition);
+
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+
+    a {
+        padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+        color: var(--textAltColor);
+        text-decoration: none;
+        border: 0;
+        transition: 0.2s;
+    }
+
+    a:hover {
+        padding: calc(0.5*var(--paddingGap)) var(--paddingGap);
+        text-decoration: none;
+        background-color: var(--panelColor);
+    }
+}
+
+.login_navigation.login_is-active {
+    left: 0;
+}
+
+/**/
+
+/*Log Out*/
+.login_logOut {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    background-color: var(--menuColor);
+    color: #FFFFFF;
+    border: 0;
+    padding: 0 2em;
+    border-radius: 10em;
+    cursor: pointer;
+}

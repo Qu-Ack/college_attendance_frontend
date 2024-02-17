@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 import './teacher_dashboard.css'
-import '../tables.css'
 import profilePic from './images/temp.png'
 
 
@@ -44,7 +43,7 @@ function DashBoard() {
     }, []);
 
     if (loading) {
-        return(
+        return (
             <h1>Loading...</h1>
         )
     }
@@ -56,9 +55,54 @@ function DashBoard() {
                 myclasses.map(myclass => <li key={myclass._id}><Link to={`/myclasses/${myclass._id}`}>{myclass.className}</Link></li>)
             }
             </ul> */}
+            <div className="TD_WRAPPER">
+                <section className="TD_mainPage">
+                    <section className="TD_profile">
+                        <img className="TD_profilePic" src={profilePic} alt="Your Profile Pic" />
+                        <div className="TD_profileText">
+                            <div className="TD_name">{teacher[0] && teacher[0].teacherName}</div>
+                            <div className="TD_designation">Assistant Professor</div>
+                            <div className="TD_department">Department of CSE</div>
+                        </div>
+                    </section>
 
+                    <section className="TD_table">
+                        <div className="TD_heading">
+                            <span className="TD_code">Code</span>
+                            <span className="TD_subject">Subject Name</span>
+                            <span className="TD_semester">Sem</span>
+                        </div>
+                        {
+                            myclasses.map(myclass => {
+                                return (
+                                    <Link className="TD_entry" to={`/myclasses/${myclass._id}`}>
+                                        <span className="TD_code">{myclass.classCode}</span>
+                                        <span className="TD_subject">{myclass.className}</span>
+                                        <span className="TD_semester">1</span>
+                                    </Link>
+                                )
+                            })
+                        }
 
-            <section className="teacher_mainPage">
+                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                            <span className="TD_code">CST102</span>
+                            <span className="TD_subject">Data Structure and Algorithms</span>
+                            <span className="TD_semester">2</span>
+                        </a>
+                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                            <span className="TD_code">ECT103</span>
+                            <span className="TD_subject">Circuit Theory</span>
+                            <span className="TD_semester">1</span>
+                        </a>
+                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                            <span className="TD_code">ECT101</span>
+                            <span className="TD_subject">Digital Design</span>
+                            <span className="TD_semester">1</span>
+                        </a>
+                    </section>
+                </section>
+            </div>
+            {/* <section className="teacher_mainPage">
                 <section className="teacher_profile teacher_panel">
                     <img className="teacher_profilePic" src={profilePic} alt="Your Profile Pic" />
                     <div className="teacher_profileText">
@@ -86,9 +130,9 @@ function DashBoard() {
                                 </Link>
                             )
                         })
-                    }
+                    } */}
 
-                    {/* <a className="teacher_entry" href="../lecture_list/lecture_list.html">
+            {/* <a className="teacher_entry" href="../lecture_list/lecture_list.html">
                         <span className="teacher_code">CST102</span>
                         <span className="teacher_subject">Data Structure and Algorithms</span>
                         <span className="teacher_semester">2</span>
@@ -103,11 +147,63 @@ function DashBoard() {
                         <span className="teacher_subject">Digital Design</span>
                         <span className="teacher_semester">1</span>
                     </a> */}
-                </section>
-            </section>
+            {/* </section>
+        </section > */}
         </>
     )
 }
+
+
+{/* <section className="TD_mainPage">
+            <section className="TD_profile">
+                <img className="TD_profilePic" src={profilePic} alt="Your Profile Pic" />
+                <div className="TD_profileText">
+                    <div className="TD_name">{teacher[0] && teacher[0].teacherName}</div>
+                    <div className="TD_designation">Assistant Professor</div>
+                    <div className="TD_department">Department of CSE</div>
+                </div>
+            </section>
+
+            <section className="TD_table">
+                <div className="TD_heading">
+                    <span className="TD_code">Code</span>
+                    <span className="TD_subject">Subject Name</span>
+                    <span className="TD_semester">Sem</span>
+                </div>
+                {
+                        myclasses.map(myclass => {
+                            return (
+                               <Link className="TD_entry" to={`/myclasses/${myclass._id}`}>
+                    <span className="TD_code">{myclass.classCode}</span>
+                    <span className="TD_subject">{myclass.className}</span>
+                    <span className="TD_semester">1</span>
+                </Link>
+                            )
+                        })
+                    }
+               
+                <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                    <span className="TD_code">CST102</span>
+                    <span className="TD_subject">Data Structure and Algorithms</span>
+                    <span className="TD_semester">2</span>
+                </a>
+                <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                    <span className="TD_code">ECT103</span>
+                    <span className="TD_subject">Circuit Theory</span>
+                    <span className="TD_semester">1</span>
+                </a>
+                <a className="TD_entry" href="../lecture_list/lecture_list.html">
+                    <span className="TD_code">ECT101</span>
+                    <span className="TD_subject">Digital Design</span>
+                    <span className="TD_semester">1</span>
+                </a>
+                </section>
+                <Link className="entry" to={`/myclasses/${myclass._id}`}>c
+                <span className="code">{myclass.classCode}</span>
+                <span className="subject">{myclass.className}</span>
+                <span className="semester">1</span>
+                </Link>
+            </section> */}
 
 
 export default DashBoard

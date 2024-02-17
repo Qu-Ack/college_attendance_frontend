@@ -1,0 +1,323 @@
+/*Menu*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --menuColor: #505050;
+    --textColor: #000000;
+    --textAltColor: #ffffff;
+    --paddingGap: 0.9em;
+    --menuTransition: 0.5s;
+
+    --studentColor: #00BBAA;
+    --studentPanelColor: #85b6b556;
+    --teacherColor: #149712;
+    --teacherPanelColor: #478b4556;
+    --adminColor: #242424;
+    --adminPanelColor: #3a3a3a3a;
+}
+
+/* body {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+} */
+
+.LAT_WRAPPER {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.LAT_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+}
+
+/* Menu icon to corss icon*/
+.LAT_hamburger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 0;   
+    border: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    width: 27px;
+    z-index: 99;
+}
+
+.LAT_hamburger .LAT_navbar, .LAT_hamburger:after, .LAT_hamburger::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin: 4.5px 0;
+    transition: var(--menuTransition);
+}
+
+.LAT_hamburger.LAT_is-active:before {
+    transform: rotate(45deg) translate(3px, 11px);
+    background-color: #FFFFFF;
+}
+
+.LAT_hamburger.LAT_is-active:after {
+    transform: rotate(-45deg) translate(1px, -9px);
+    background-color: #FFFFFF;
+}
+
+.LAT_hamburger.LAT_is-active .LAT_navbar {
+    opacity: 0;
+}
+/**/
+
+/* Navigation Bar */
+.LAT_navigation {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    min-height: 100vh;
+    z-index: 98;
+    background-color: var(--menuColor);
+    padding-top: 3em;
+    transition: var(--menuTransition);
+    
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+    a {
+        padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+        color: var(--textAltColor);
+        text-decoration: none;
+        border: 0;
+        transition: 0.2s;
+    }
+
+    a:hover {
+        padding: calc(0.5*var(--paddingGap)) var(--paddingGap);
+        text-decoration: none;
+    }
+}
+
+.LAT_navigation.LAT_is-active {
+    left: 0;
+}
+/**/
+
+/*Log Out*/
+.LAT_logOut {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    background-color: var(--menuColor);
+    color: #FFFFFF;
+    border: 0;
+    padding: 0 2em;
+    border-radius: 10em;
+    cursor: pointer;
+}
+
+/*LAT css*/
+.LAT_WRAPPER {
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%2347ff4a' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23249542' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%234cff49' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%2320993e' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2351ff49' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%231b9d3a' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2356ff48' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%2316a035' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%235aff48' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%2310a42f' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%235eff47' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%230aa828' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/*Nav bar and Colors*/
+.LAT_header {
+    background-color: var(--teacherColor);
+}
+
+.LAT_navigation {
+    background-color: var(--menuColor);
+    a:hover {
+        background-color: var(--teacherPanelColor);
+    }
+}
+
+.LAT_mainPage .LAT_deleteLecture {
+    background-color: #e43323;
+}
+
+/**/
+.LAT_mainPage {
+    display: flex;
+    flex-direction: column;
+    padding: var(--paddingGap);
+    gap: 30px;
+}
+
+.LAT_mainPage .LAT_subjectName {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.LAT_mainPage .LAT_lectureNumber {
+    margin: 0;
+    padding: 0;
+}
+
+.LAT_mainPage .LAT_QRcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--paddingGap);
+    padding: var(--paddingGap);
+    /*From panel*/
+    background-color: var(--teacherPanelColor);
+    border-radius: 0.7em;
+}
+
+.LAT_QRcontainer .LAT_detailsContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.LAT_QRcontainer .LAT_detailsContainer > h3 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.LAT_QRcontainer .LAT_detailsContainer .LAT_line {
+    border: 1px solid black; 
+    margin: 1em;
+}
+
+.LAT_QRcontainer .LAT_detailsContainer > .LAT_details {
+    font-weight: 600;
+}
+
+.LAT_mainPage .LAT_QRcode {
+    width: 250px;
+    height: auto;
+}
+
+.LAT_mainPage .LAT_deleteLecture {
+    border: 0;
+    border-radius: 2em;
+    width: 15em;
+    padding: 0.7em 2em;
+    font-size: 1em;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+/*Table*/
+.LAT_table {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: calc(0.5*var(--paddingGap));
+    /*From panel*/
+    background-color: var(--teacherPanelColor);
+    border-radius: 0.7em;
+}
+
+.LAT_table > div,
+.LAT_table > a {
+    display: flex;
+    padding: calc(0.5*var(--paddingGap));
+}
+
+.LAT_table > a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--textColor);
+}
+
+.LAT_table > .LAT_heading {
+    font-weight: 800;
+    border-bottom: 1px solid #000000;
+}
+
+/*Teacher Dashboard Table*/
+.LAT_table > a > .LAT_subject {
+    transition: 0.3s;
+}
+
+.LAT_table > a > .LAT_subject:hover {
+    transform: scale(1.012);
+}
+
+.LAT_table .LAT_code {
+    width: 4.5em;
+}
+
+.LAT_table .LAT_subject {
+    flex: 1;
+}
+
+.LAT_table .LAT_semester {
+    justify-content: flex-start;
+    width: 3em;
+}
+
+
+/*Subject Page Table*/
+.LAT_table > a > .LAT_lectureTitle {
+    transition: 0.3s;
+}
+.LAT_table > a > .LAT_lectureTitle:hover {
+    transform: scale(1.012);
+}
+
+@media only screen and (max-width: 395px) {
+    .LAT_table > a > .LAT_lectureTitle {
+        word-break: break-all;
+    }
+}
+
+.LAT_table .LAT_lectureNumber,
+.LAT_table .LAT_section {
+    width: 2.5em;
+    /*Later change Sec. to Section using media query for desktop*/
+}
+
+.LAT_table .LAT_lectureTitle {
+    flex: 1;
+}
+
+.LAT_table .LAT_date {
+    width: 6em;
+}
+
+.LAT_table .LAT_time {
+    width: 3em;
+}
+
+
+/*Lecture Attendance Table*/
+.LAT_table .LAT_serialNumber {
+    width: 2.5em;
+    /*Later change Sec. to Section using media query for desktop*/
+}
+
+.LAT_table .LAT_studentID {
+    flex: 1;
+}
+
+.LAT_table .LAT_attendance {
+    width: 6em;
+}

@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* body {
+
+} */
+
+:root {
+    --menuColor: #505050;
+    --textColor: #000000;
+    --textAltColor: #ffffff;
+    --paddingGap: 0.9em;
+    --menuTransition: 0.5s;
+
+    --studentColor: #00BBAA;
+    --studentPanelColor: #85b6b556;
+    --teacherColor: #149712;
+    --teacherPanelColor: #478b4556;
+    --adminColor: #242424;
+    --adminPanelColor: #3a3a3a3a;
+}
+
+.TD_WRAPPER {
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%2347ff4a' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23249542' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%234cff49' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%2320993e' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2351ff49' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%231b9d3a' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2356ff48' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%2316a035' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%235aff48' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%2310a42f' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%235eff47' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%230aa828' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+/*Nav bar and Colors*/
+.TD_header {
+    background-color: var(--teacherColor);
+}
+
+.TD_navigation {
+    background-color: var(--menuColor);
+    a:hover {
+        background-color: var(--teacherPanelColor);
+    }
+}
+
+.TD_hamburger .TD_navbar, .TD_hamburger:after, .TD_hamburger::before {
+    background-color: #ffffff;
+}
+
+/**/
+.TD_mainPage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: var(--paddingGap) var(--paddingGap);
+    gap: var(--paddingGap);
+ 
+}
+
+.TD_mainPage > .TD_profile {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: var(--paddingGap);
+    /*From panel*/
+    border-radius: 0.7em;
+    background-color: var(--teacherPanelColor);
+}
+
+.TD_mainPage > .TD_profile > .TD_profilePic {
+    height: 8em;
+    border-radius: 50%;
+}
+
+.TD_mainPage > .TD_profile > .TD_profileText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.TD_mainPage > .TD_profile > .TD_profileText > .TD_name {
+    font-size: 1.7em;
+    font-weight: 700;
+    padding-bottom: 0.2em;
+}
+
+.TD_mainPage > .TD_profile > .TD_profileText > .TD_designation,
+.TD_mainPage > .TD_profile > .TD_profileText > .TD_department {
+    font-weight: 500;
+}
+
+/*Menu*/
+
+
+.TD_WRAPPER {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.TD_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+}
+
+/* Menu icon to corss icon*/
+.TD_hamburger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 0;   
+    border: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    width: 27px;
+    z-index: 99;
+}
+
+.TD_hamburger .TD_navbar, .TD_hamburger:after, .TD_hamburger::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin: 4.5px 0;
+    transition: var(--menuTransition);
+}
+
+.TD_hamburger.TD_is-active:before {
+    transform: rotate(45deg) translate(3px, 11px);
+    background-color: #FFFFFF;
+}
+
+.TD_hamburger.TD_is-active:after {
+    transform: rotate(-45deg) translate(1px, -9px);
+    background-color: #FFFFFF;
+}
+
+.TD_hamburger.TD_is-active .TD_navbar {
+    opacity: 0;
+}
+/**/
+
+/* Navigation Bar */
+.TD_navigation {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    min-height: 100vh;
+    z-index: 98;
+    background-color: var(--menuColor);
+    padding-top: 3em;
+    transition: var(--menuTransition);
+    
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+    a {
+        padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+        color: var(--textAltColor);
+        text-decoration: none;
+        border: 0;
+        transition: 0.2s;
+    }
+
+    a:hover {
+        padding: calc(0.5*var(--paddingGap)) var(--paddingGap);
+        text-decoration: none;
+    }
+}
+
+.TD_navigation.TD_is-active {
+    left: 0;
+}
+/**/
+
+/*Log Out*/
+.TD_logOut {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    background-color: var(--menuColor);
+    color: #FFFFFF;
+    border: 0;
+    padding: 0 2em;
+    border-radius: 10em;
+    cursor: pointer;
+}
+
+/*Table*/
+.TD_table {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: calc(0.5*var(--paddingGap));
+    /*From panel*/
+    border-radius: 0.7em;
+    background-color: var(--teacherPanelColor);
+}
+
+.TD_table > div,
+.TD_table > a {
+    display: flex;
+    padding: calc(0.5*var(--paddingGap));
+}
+
+.TD_table > a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--textColor);
+}
+
+.TD_table > .TD_heading {
+    font-weight: 800;
+    border-bottom: 1px solid #fa9191;
+}
+
+/*Teacher Dashboard Table*/
+.TD_table > a > .TD_subject {
+    transition: 0.3s;
+}
+
+.TD_table > a > .TD_subject:hover {
+    transform: scale(1.012);
+}
+
+.TD_table .TD_code {
+    width: 4.5em;
+}
+
+.TD_table .TD_subject {
+    flex: 1;
+}
+
+.TD_table .TD_semester {
+    justify-content: flex-start;
+    width: 3em;
+}
+
+
