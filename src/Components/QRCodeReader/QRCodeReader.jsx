@@ -24,9 +24,9 @@ function QRCodeReader() {
         console.log(skt)
 
         const scanner = new Html5QrcodeScanner('reader', {
-            qrbox:{
-                height:200,
-                width:200,
+            qrbox: {
+                height: 200,
+                width: 200,
             },
             fps: 5
         })
@@ -43,8 +43,20 @@ function QRCodeReader() {
                 }, {
                     headers: myHeaders
                 })
-                if(response.status == 500) {
-                    navigate('/invalidqr')
+                if (response.data.error == 'undefined') {
+                    return (
+                        <>
+                            <h1>{response.data.message}</h1>
+                            <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
+                        </>
+                    )
+                } else {
+                    return (
+                        <>
+                        <h1>{response.data.error}</h1>
+                        <Link to={`/studdashboard/${decoded.id}`}>Dashboard</Link>
+                        </>
+                    )
                 }
 
                 // console.log(response.data)
