@@ -23,6 +23,10 @@ function QRCodeReader() {
         console.log(skt)
 
         const scanner = new Html5QrcodeScanner('reader', {
+            qrbox:{
+                height:200,
+                width:200,
+            },
             fps: 5
         })
         scanner.render(success, error);
