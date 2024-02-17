@@ -44,7 +44,7 @@ function DashBoard() {
 
     if (loading) {
         return (
-            <h1>Loading...</h1>
+            <h1 className="loading_screen">Loading...</h1>
         )
     }
 
@@ -62,7 +62,7 @@ function DashBoard() {
                         <div className="TD_profileText">
                             <div className="TD_name">{teacher[0] && teacher[0].teacherName}</div>
                             <div className="TD_designation">Assistant Professor</div>
-                            <div className="TD_department">Department of CSE</div>
+                            {/* <div className="TD_department">Department of CSE</div> */}
                         </div>
                     </section>
 
@@ -70,7 +70,7 @@ function DashBoard() {
                         <div className="TD_heading">
                             <span className="TD_code">Code</span>
                             <span className="TD_subject">Subject Name</span>
-                            <span className="TD_semester">Sem</span>
+                            {/* <span className="TD_semester">Sem</span> */}
                         </div>
                         {
                             myclasses.map(myclass => {
@@ -78,27 +78,12 @@ function DashBoard() {
                                     <Link className="TD_entry" to={`/myclasses/${myclass._id}`}>
                                         <span className="TD_code">{myclass.classCode}</span>
                                         <span className="TD_subject">{myclass.className}</span>
-                                        <span className="TD_semester">1</span>
+                                        {/* <span className="TD_semester">1</span> */}
                                     </Link>
                                 )
                             })
                         }
 
-                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
-                            <span className="TD_code">CST102</span>
-                            <span className="TD_subject">Data Structure and Algorithms</span>
-                            <span className="TD_semester">2</span>
-                        </a>
-                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
-                            <span className="TD_code">ECT103</span>
-                            <span className="TD_subject">Circuit Theory</span>
-                            <span className="TD_semester">1</span>
-                        </a>
-                        <a className="TD_entry" href="../lecture_list/lecture_list.html">
-                            <span className="TD_code">ECT101</span>
-                            <span className="TD_subject">Digital Design</span>
-                            <span className="TD_semester">1</span>
-                        </a>
                     </section>
                 </section>
             </div>

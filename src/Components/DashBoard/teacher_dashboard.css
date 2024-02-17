@@ -4,6 +4,10 @@
 /* body {
 
 } */
+body {
+    font-family: 'Manrope', 'Inter', Arial , sans-serif;
+}
+
 
 :root {
     --menuColor: #505050;

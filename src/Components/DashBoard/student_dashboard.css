@@ -25,6 +25,19 @@
     padding: 0;
     height: 100vh;
 } */
+.SD_MarkAtt_Link {
+    color:black;
+    text-decoration: none;
+}
+
+.loading_screen {
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Manrope', 'Inter', Arial , sans-serif;
+}
 
 .STUD_WRAPPER {
     font-family: 'Manrope', 'Inter', Arial, sans-serif;

@@ -6,6 +6,9 @@ function CreateClass() {
 
     const [className, setClassName] = useState("");
     const [classCode, setClassCode] = useState("");
+    const [loading , setLoading] = useState(false);
+    const [data , setData] = useState("")
+    
 
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
@@ -14,13 +17,17 @@ function CreateClass() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true)
         const response = await axios.post("https://collegeattendance-production.up.railway.app/api/class", {
             className,
             classCode,
         }, {
             headers: myHeaders
         })
+        setLoading(false)
         console.log(response)
+        setData(response.data.message)
+        
 
     }
 
@@ -55,6 +62,10 @@ function CreateClass() {
                     <input id="AASUB_subjectName" value={className} onChange={(e) => setClassName(e.target.value)} type="text" className="AASUB_box" />
                     <button id="AASUB_submit" type="submit" onClick={handleSubmit}>Add</button>
                 </form>
+                <div>
+                    <div className="admin_loading">{loading && <h1 >Loading ...</h1>}</div>
+                    <div className="admin_message">{data}</div>
+                </div>
             </section>
         </div>
     )

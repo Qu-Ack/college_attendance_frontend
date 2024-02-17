@@ -8,6 +8,9 @@ function AssignTeacherToClass() {
     const [classes, setClasses] = useState([]);
     const [selectedTeacher, setSelectedTeacher] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("")
+    const [data, setData] = useState("")
 
 
     const myHeaders = {
@@ -19,6 +22,8 @@ function AssignTeacherToClass() {
         // Fetch teachers and classes from backend API
         const fetchTeachersAndClasses = async () => {
             try {
+
+
                 const teachersResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_teachers', {
                     headers: myHeaders
                 });
@@ -27,7 +32,6 @@ function AssignTeacherToClass() {
                 });
                 setTeachers(teachersResponse.data.teachers);
                 setClasses(classesResponse.data.classes);
-
                 console.log(teachersResponse.data);
                 console.log(classesResponse.data)
             } catch (error) {
@@ -41,12 +45,21 @@ function AssignTeacherToClass() {
     const handleAssignClassToTeacher = async (e) => {
         e.preventDefault()
         try {
-            await axios.put('https://collegeattendance-production.up.railway.app/api/teachertoclass', {
+            setLoading(true)
+            setData("")
+            setError("")
+            const response = await axios.put('https://collegeattendance-production.up.railway.app/api/teachertoclass', {
                 teacherID: selectedTeacher,
                 classID: selectedClass
             });
+            setLoading(false)
+            if (typeof response.data.error != 'undefined') {
+                setError(response.data.error)
+            } else if (typeof response.data.error == 'undefined') {
+                setData('Teacher Assigned to Subject Successfully')
+            }
         } catch (error) {
-            console.error('Error assigning class to teacher:', error);
+            setError(error)
             // alert('Error assigning teacher to the class. Please try again.');
         }
     };
@@ -94,6 +107,12 @@ function AssignTeacherToClass() {
                     </select>
                     <button id="ASTT_submit" onClick={handleAssignClassToTeacher}>Assign</button>
                 </form>
+                <div >
+                    {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+                    <div className="admin_loading">{loading && <h1>Loading ..</h1>}</div>
+                    <div className="admin_data">{data}</div>
+                    <div className="admin_error">{error}</div>
+                </div>
             </section>
         </div>
     );

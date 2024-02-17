@@ -10,6 +10,7 @@ function Lecture() {
     const [lectureData, setLectureData] = useState({})
     const [count, setCount] = useState(1)
     const [classData, setClassData] = useState({})
+    const [loading, setLoading] = useState(false)
     const [lecid, setLecId] = useState(`${lectureid}+${generateRandomString(20)}`)
     const [qrValue, setQrValue] = useState("")
     const myHeaders = {
@@ -31,12 +32,18 @@ function Lecture() {
     useEffect(() => {
         async function request() {
             try {
+                setLoading(true)
                 const skt = io("https://collegeattendance-production.up.railway.app/")
                 setSocket(skt)
                 const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/lecture/${lectureid}`, {
                     headers: myHeaders
                 })
+                const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, {
+                    headers:myHeaders
+                })
+                setLoading(false)
                 setLectureData(response.data.lecture)
+                setClassData(response2.data.cls)
                 console.log(response.data)
 
 
@@ -110,6 +117,13 @@ function Lecture() {
 
         return `${hours}:${minutes}`;
     }
+
+    if(loading) {
+        return(
+            <h1 className="loading_screen">Loading ...</h1>
+        )
+    }
+
     return (
         // // <QRCodeSVG value={lectureid}></QRCodeSVG>
         // <section className="mainPage">
@@ -153,8 +167,8 @@ function Lecture() {
         // </section>
         <div className="LAT_WRAPPER">
             <section className="LAT_mainPage">
-                <h1 className="LAT_subjectName">ECT103 - Circuit Theory</h1>
-                <h2 className="LAT_lectureNumber">Lecture Number : 1</h2>
+                <h1 className="LAT_subjectName">{classData.classCode} - {classData.className}</h1>
+                {/* <h2 className="LAT_lectureNumber">Lecture Number : 1</h2> */}
                 <div className="LAT_QRcontainer">
                     <div className="LAT_detailsContainer">
                         <h3>Class details:</h3>
@@ -183,22 +197,6 @@ function Lecture() {
                         </a>
                     ))}
 
-                    {/* Sample data */}
-                    <a className="LAT_entry" href="#">
-                        <span className="LAT_serialNumber">1</span>
-                        <span className="LAT_studentID">2023KUEC2016</span>
-                        <span className="LAT_attendance">Absent</span>
-                    </a>
-                    <a className="LAT_entry" href="#">
-                        <span className="LAT_serialNumber">2</span>
-                        <span className="LAT_studentID">2023KUEC2017</span>
-                        <span className="LAT_attendance"></span>
-                    </a>
-                    <a className="LAT_entry" href="#">
-                        <span className="LAT_serialNumber">3</span>
-                        <span className="LAT_studentID">2023KUEC2018</span>
-                        <span className="LAT_attendance">Unknown</span>
-                    </a>
                 </section>
             </section>
         </div>

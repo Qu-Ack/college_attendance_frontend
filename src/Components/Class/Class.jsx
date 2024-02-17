@@ -8,6 +8,7 @@ function Class() {
     const [lectureName, setLectureName] = useState("");
     const [myclass, setmyClass] = useState({});
     const { classid } = useParams();
+    const [loading, setLoading] = useState(false)
 
 
     const myHeaders = {
@@ -23,15 +24,17 @@ function Class() {
 
         console.log(response)
         const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, { headers: myHeaders })
-        // console.log(response.data)
+        console.log(response.data)
         setmyClass(response2.data.cls)
     }
 
     useEffect(() => {
         async function request() {
+            setLoading(true)
             const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, {
                 headers: myHeaders
             })
+            setLoading(false)
             console.log(response.data)
             setmyClass(response.data.cls)
         }
@@ -57,6 +60,11 @@ function Class() {
         return `${hours}:${minutes}`;
     }
 
+    if (loading) {
+        return (
+            <h1 className="loading_screen">Loading ...</h1>
+        )
+    }
     console.log(myclass)
     return (
 
@@ -66,8 +74,8 @@ function Class() {
                 <h1 className="Ll_subjectName">{myclass.classCode} - {myclass.className}</h1>
                 {/* Uncomment if needed */}
                 {/* <h2 className="Ll_section">Section A</h2> */}
-                <form method="POST">
-                    <input type="text" name="lecture_name" id="lecture_name" placeholder="Enter The Lecture Name" value={lectureName} onChange={(e) => { setLectureName(e.target.value) }} />
+                <form method="POST" className="Ll_FORM">
+                    <input type="text" className="Ll_INPUT" name="lecture_name" id="lecture_name" placeholder="Enter Lecture Title" value={lectureName} onChange={(e) => { setLectureName(e.target.value) }} />
                     <button className="Ll_scheduleLecture" onClick={handleClick}>Schedule Lecture</button>
                 </form>
 
@@ -79,7 +87,7 @@ function Class() {
                         <span className="Ll_time">Time</span>
                     </div>
                     {myclass.lectures && myclass.lectures.length === 0 ? (
-                        <h1>No Lectures yet</h1>
+                        <h1 className="Ll_NOL">No Lectures yet</h1>
                     ) : (
                         myclass.lectures && myclass.lectures.map((lecture, index) => {
                             return (

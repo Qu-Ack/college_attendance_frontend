@@ -8,15 +8,18 @@ function CreateStudent() {
     const [studentid, setStudentId] = useState("");
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmPassword] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [error , setError] = useState("")
+    const [data, setData] = useState("")
 
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
         'Authorization': `Bearer ${localStorage.token || ''}`, // Add any other headers as needed
     };
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        const response = axios.post("https://collegeattendance-production.up.railway.app/api/signup", {
+        const response = await axios.post("https://collegeattendance-production.up.railway.app/api/signup", {
             name: studentName,
             studentid,
             password,
@@ -25,7 +28,11 @@ function CreateStudent() {
             headers: myHeaders
         })
         console.log(response.data)
-
+        if (typeof response.data.errors != 'undefined') {
+            setError(response.data.errors[0].msg);
+          } else if (typeof response.data.errors == 'undefined') { 
+            setData("student created successfully")
+          }
         if (response.status == 200) {
             console.log("Success")
         } else {
@@ -58,6 +65,12 @@ function CreateStudent() {
                     <input id="AASTD_studentConfirmPassword" type="password" value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} className="AASTD_box" />
                     <button id="AASTD_submit" onClick={handleSubmit}>Add</button>
                 </form>
+                <div >
+                    {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+                    <div className="admin_loading">{loading && "Loading .."}</div>
+                    <div className="admin_data">{data}</div>
+                    <div className="admin_error">{error}</div>
+                </div>
             </section>
         </div>
 

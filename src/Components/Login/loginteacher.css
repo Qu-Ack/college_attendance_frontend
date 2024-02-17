@@ -45,7 +45,7 @@
     justify-content: center;
     align-items: stretch;
     border-radius: 0.5rem;
-    height: 450px;
+    height: 500px;
     width: 320px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.185);
     margin-bottom: 3em; /*remove to perfectly center*/
@@ -137,6 +137,7 @@
 .loginTeacher_adminLoginBtn,
 .loginTeacher_studentLoginBtn {
     cursor: pointer;
+    color:white;
 }
 
 .loginTeacher_teacherLoginBtn:hover,
@@ -169,6 +170,12 @@
     --teacherPanelColor: #478b4556;
     --adminColor: #242424;
     --adminPanelColor: #3a3a3a3a;
+}
+
+.user-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .TEACHERLOGIN_WRAPPER {

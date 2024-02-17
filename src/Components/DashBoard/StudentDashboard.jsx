@@ -34,7 +34,7 @@ function StudentDashboard() {
     }, [])
 
     if (loading) {
-        return <h1>Loading ...</h1>
+        return <h1 className="loading_screen">Loading ...</h1>
     }
 
     return (
@@ -92,17 +92,17 @@ function StudentDashboard() {
                     <div className="SD_profileText">
                         <div className="SD_name">{data.name}</div>
                         <div className="SD_studentID">{data.studentid}</div>
-                        <div className="SD_department">CSE</div>
+                        {/* <div className="SD_department">CSE</div> */}
                     </div>
                 </section>
 
-                <button className="SD_markAttendance"><Link to="/reader">Mark Attendance</Link></button>
+                <button className="SD_markAttendance"><Link to="/reader" className="SD_MarkAtt_Link">Mark Attendance</Link></button>
 
                 <section className="SD_table panel">
                     <div className="SD_heading">
                         <span className="SD_code">Code</span>
                         <span className="SD_subject">Subject Name</span>
-                        <span className="SD_semester">Sem</span>
+                        {/* <span className="SD_semester">Sem</span> */}
                     </div>
 
                     {
@@ -111,26 +111,11 @@ function StudentDashboard() {
                                 <a className="SD_entry" href="#">
                                     <span className="SD_code">{cls.classCode}</span>
                                     <span className="SD_subject">{cls.className}</span>
-                                    <span className="SD_semester">1</span>
+                                    {/* <span className="SD_semester">1</span> */}
                                 </a>
                             )
                         })
                     }
-                    <a className="SD_entry" href="../lecture_attendance_STUDENT/lecAttendStudent.html">
-                        <span className="SD_code">CST102</span>
-                        <span className="SD_subject">Data Structure and Algorithms</span>
-                        <span className="SD_semester">2</span>
-                    </a>
-                    <a className="SD_entry" href="../lecture_attendance_STUDENT/lecAttendStudent.html">
-                        <span className="SD_code">ECT103</span>
-                        <span className="SD_subject">Circuit Theory</span>
-                        <span className="SD_semester">1</span>
-                    </a>
-                    <a className="SD_entry" href="../lecture_attendance_STUDENT/lecAttendStudent.html">
-                        <span className="SD_code">ECT101</span>
-                        <span className="SD_subject">Digital Design</span>
-                        <span className="SD_semester">1</span>
-                    </a>
                 </section>
             </section>
         </div>

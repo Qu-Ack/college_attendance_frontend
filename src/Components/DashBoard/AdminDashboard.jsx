@@ -11,7 +11,7 @@ function AdminDashBoard() {
                     <div className="A_profileText">
                         <div className="A_name">John Doe</div>
                         <div className="A_designation">ADMIN</div>
-                        <div className="A_department">Department of CSE</div>
+                        {/* <div className="A_department">Department of CSE</div> */}
                     </div>
                 </section>
             </section>

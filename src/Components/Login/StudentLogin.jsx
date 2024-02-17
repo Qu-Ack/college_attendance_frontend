@@ -38,8 +38,13 @@ function StudentLogin() {
       } else if (typeof response.data.token != 'undefined') {
         localStorage.token = response.data.token;
         const decoded = jwtDecode(localStorage.token)
-        console.log(decoded)
-        navigate(`/studdashboard/${decoded.id}`)
+        if (decoded.role == 'student') {
+          navigate(`/studdashboard/${decoded.id}`)
+        } else if (decoded.role == 'admin') {
+          navigate(`/admin`)
+        } else if (decoded.role == 'teacher') {
+          navigate(`/dashboard/${decoded.id}`)
+        }
       } else {
         // console.log(response.data.errors)
         setError(response.data.errors);

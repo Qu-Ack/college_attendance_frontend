@@ -107,7 +107,7 @@ function TeacherLogin() {
           <div className="loginTeacher_loginText">Teacher Login</div>
           <form className="loginTeacher_loginInput" method="POST">
             <div className="loginTeacher_email">
-              <label htmlFor="email" className="loginTeacher_text">Email</label>
+              <label htmlFor="email" className="loginTeacher_text">Username</label>
               <input type="text" id="email" name="email" className="loginTeacher_box" onChange={(e) => { setEmail(e.target.value) }} />
             </div>
             <div className="loginTeacher_password">
@@ -121,6 +121,11 @@ function TeacherLogin() {
           <div className="loginTeacher_otherLoginBtns">
             <Link to="/" className="loginTeacher_studentLoginBtn">Student login</Link>
             <Link to="/adminlogin" className="loginTeacher_adminLoginBtn">Admin login</Link>
+          </div>
+          <div className="user-text">
+            {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+            <div className="loading">{loading && "Loading .."}</div>
+            <div className="error">{error}</div>
           </div>
         </div>
       </div>

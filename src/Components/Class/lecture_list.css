@@ -26,6 +26,21 @@
 
 } */
 
+.Ll_FORM {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.Ll_NOL {
+    margin:var(--paddingGap);
+}
+
+.Ll_FORM .Ll_INPUT {
+    width:500px;
+    height:30px;
+
+}
 .Ll_ {
     width: 100%;
     height: 100%;

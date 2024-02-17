@@ -8,15 +8,22 @@ function CreateTeacher() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmPassword] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [error , setError] = useState("")
+    const [data, setData] = useState("")
 
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
         'Authorization': `Bearer ${localStorage.token || ''}`, // Add any other headers as needed
     };
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
+        try {
         e.preventDefault();
-        const response = axios.post("https://collegeattendance-production.up.railway.app/api/teacher", {
+        setLoading(true)
+        setError("")
+        setData("")
+        const response = await axios.post("https://collegeattendance-production.up.railway.app/api/teacher", {
             teacherName,
             username,
             password,
@@ -25,11 +32,23 @@ function CreateTeacher() {
             headers: myHeaders
         })
 
+        console.log(response.data)
+        setLoading(false)
+
+        if (typeof response.data.errors != 'undefined') {
+            setError(response.data.errors[0].msg);
+          } else if (typeof response.data.errors == 'undefined') { 
+            setData("teacher created successfully")
+          }
+
         if (response.status == 200) {
             console.log("Success")
         } else {
             console.log(response)
         }
+    } catch (err) {
+        setError(err)
+    }
 
     }
 
@@ -55,9 +74,15 @@ function CreateTeacher() {
                     <label htmlFor="AATEA_teacherPassword" className="AATEA_text">Password</label>
                     <input id="AATEA_teacherPassword" type="password" className="AATEA_box" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                     <label htmlFor="AATEA_teacherConfirmPassword" className="AATEA_text" >Confirm Password</label>
-                    <input id="AATEA_teacherConfirmPassword" type="password" className="AATEA_box" value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }}/>
+                    <input id="AATEA_teacherConfirmPassword" type="password" className="AATEA_box" value={confirmpassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
                     <button id="AATEA_submit" onClick={handleSubmit} type="submit">Add</button>
                 </form>
+                <div >
+                    {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+                    <div className="admin_loading">{loading && "Loading .."}</div>
+                    <div className="admin_data">{data}</div>
+                    <div className="admin_error">{error}</div>
+                </div>
             </section>
         </div>
     )

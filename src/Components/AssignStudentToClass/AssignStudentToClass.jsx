@@ -7,6 +7,9 @@ function AddStudentToClass() {
     const [classes, setClasses] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("")
+    const [data, setData] = useState("")
 
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
@@ -35,12 +38,23 @@ function AddStudentToClass() {
     const handleAddStudentToClass = async (e) => {
         e.preventDefault()
         try {
-            await axios.post('https://collegeattendance-production.up.railway.app/api/addstudtoclass', {
+            setLoading(true)
+            setError("")
+            // setData("")
+            const response = await axios.post('https://collegeattendance-production.up.railway.app/api/addstudtoclass', {
                 studentID: selectedStudent,
                 classID: selectedClass
             });
+            console.log(response.data)
+            setData('Subject Assigned Successfully!!')
+            setLoading(false)
+            if (response.data.error != 'undefined') {
+                setError(response.data.error)
+            } else if (response.data.error == 'undefined') {
+               
+            }
         } catch (error) {
-            console.error('Error adding student to class:', error);
+            setError(error)
         }
     };
 
@@ -87,6 +101,12 @@ function AddStudentToClass() {
                     </select>
                     <button id="AASS_submit" onClick={handleAddStudentToClass}>Assign</button>
                 </form>
+                <div >
+                    {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+                    <div className="admin_loading">{loading && <h1>Loading ..</h1>}</div>
+                    <div className="admin_data">{data}</div>
+                    <div className="admin_error">{error}</div>
+                </div>
             </section>
         </div>
     );
