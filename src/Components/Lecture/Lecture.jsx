@@ -8,7 +8,7 @@ function Lecture() {
     const { classid, lectureid } = useParams();
     const [socket, setSocket] = useState(null)
     const [lectureData, setLectureData] = useState({})
-    const [lecid, setLecId] = useState(`${lectureid}+`)
+    const [lecid, setLecId] = useState(`${lectureid}`)
     const [qrValue, setQrValue] = useState("")
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
@@ -72,7 +72,7 @@ function Lecture() {
 
                 request()
                 console.log(emmitdata)
-                setLecId(`${emmitdata.split("+")[0]}${generateRandomString(20)}`);
+                setLecId(`${emmitdata.split("+")[0]}+${generateRandomString(20)}`);
             }); 
         }
 
