@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import styles from './login.module.css'
+import './login.css'
 import background from './background.png'
 
 function StudentLogin() {
@@ -53,25 +53,25 @@ function StudentLogin() {
 
     return (
 
-        <div className={styles.mainPage} id="studentLogin">
-      <div className={styles.loginContainer}>
-        <div className={styles.loginText}>Student Login</div>
-        <form className={styles.loginInput}>
-          <div className={styles.email}>
-            <label htmlFor="fname" className={styles.text}>Email</label>
-            <input type="text" id="fname" name="fname" className={styles.box}  onChange={(e) => {setEmail(e.target.value)}} />
+        <div className="" id="studentLogin">
+      <div className="">
+        <div className="">Student Login</div>
+        <form className="">
+          <div className="">
+            <label htmlFor="fname" className="">Email</label>
+            <input type="text" id="fname" name="fname" className=""  onChange={(e) => {setEmail(e.target.value)}} />
           </div>
-          <div className={styles.password}>
-            <label htmlFor="lname" className="text">Password</label>
-            <input type="password" id="lname" name="lname" className={styles.box} onChange={(e) => {setPassword(e.target.value)}} />
+          <div className="">
+            <label htmlFor="lname" className="">Password</label>
+            <input type="password" id="lname" name="lname" className="" onChange={(e) => {setPassword(e.target.value)}} />
           </div>
         </form>
-        <button className={styles.loginButton} onClick={handleSubmit}>Login</button>
+        <button className="" onClick={handleSubmit}>Login</button>
 
-        <div className={styles.notA}>Not a Student?</div>
-        <div className={styles.otherLoginBtns}>
-          <a className={styles.teacherLoginBtn}>Teacher login</a>
-          <a className={styles.adminLoginBtn}>Admin login</a>
+        <div className="">Not a Student?</div>
+        <div className="">
+          <Link to="/teacherlogin" className="">Teacher login</Link>
+          <Link to="/adminlogin"className="">Admin login</Link>
         </div>
       </div>
     </div>

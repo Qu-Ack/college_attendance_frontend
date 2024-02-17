@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 // import {v4 as uuidv4} from 'uuid'
 // import Randomstring from "randomstring";
+import { Navigate, useNavigate } from "react-router";
 import './qr_reader.css'
 import io from 'socket.io-client'
 
@@ -11,7 +12,7 @@ function QRCodeReader() {
 
     const [scanResult, setScanResult] = useState(null);
     const [socket, setSocket] = useState(null)
-
+    const navigate = useNavigate();
     const myHeaders = {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
         'Authorization': `Bearer ${localStorage.token || ''}`, // Add any other headers as needed
@@ -42,6 +43,9 @@ function QRCodeReader() {
                 }, {
                     headers: myHeaders
                 })
+                if(response.status == 500) {
+                    navigate('/invalidqr')
+                }
 
                 // console.log(response.data)
             }

@@ -47,7 +47,8 @@ function StudentDashboard() {
                     <div className="department">CSE</div>
                 </div>
             </section>
-            <Link to="/reader">Scan</Link>
+            {/* <button class = "markAttendance">Mark Attendance</button> */}
+            <Link to="/reader" className="markAttendance">Mark Attendance</Link>
             <section className="table panel">
                 <div className="heading">
                     <span className="code">Code</span>
@@ -83,6 +84,8 @@ function StudentDashboard() {
                 </a> */}
             </section>
         </section>
+
+        
     )
 
 }

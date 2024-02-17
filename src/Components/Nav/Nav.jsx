@@ -1,10 +1,9 @@
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
-
+import '../menu.css'
 
 // Import React and CSS
 import React, { useState } from 'react';
-import '../menu.css';  // Make sure to import your other CSS files
 
 // Nav component
 const Nav = () => {

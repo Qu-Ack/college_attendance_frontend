@@ -45,7 +45,7 @@ function DashBoard() {
 
     if (loading) {
         return(
-            <h1>Loading ... </h1>
+            <h1>Loading...</h1>
         )
     }
 
@@ -58,28 +58,28 @@ function DashBoard() {
             </ul> */}
 
 
-            <section className="mainPage">
-                <section className="profile panel">
-                    <img className="profilePic" src={profilePic} alt="Your Profile Pic" />
-                    <div className="profileText">
+            <section className="teacher_mainPage">
+                <section className="teacher_profile teacher_panel">
+                    <img className="teacher_profilePic" src={profilePic} alt="Your Profile Pic" />
+                    <div className="teacher_profileText">
                         {console.log(teacher[0])}
-                        <div className="name">{teacher[0] && teacher[0].teacherName}</div>
-                        <div className="designation">Assistant Professor</div>
-                        <div className="department">Department of CSE</div>
+                        <div className="teacher_name">{teacher[0] && teacher[0].teacherName}</div>
+                        <div className="teacher_designation">Assistant Professor</div>
+                        <div className="teacher_department">Department of CSE</div>
                     </div>
                 </section>
 
-                <section className="table panel">
-                    <div className="heading">
-                        <span className="code">Code</span>
-                        <span className="subject">Subject Name</span>
-                        <span className="semester">Sem</span>
+                <section className="teacher_table panel">
+                    <div className="teacher_heading">
+                        <span className="teacher_code">Code</span>
+                        <span className="teacher_subject">Subject Name</span>
+                        <span className="teacher_semester">Sem</span>
                     </div>
 
                     {
                         myclasses.map(myclass => {
                             return (
-                                <Link className="entry" to={`/myclasses/${myclass._id}`}>
+                                <Link className="entry" to={`/myclasses/${myclass._id}`}>c
                                     <span className="code">{myclass.classCode}</span>
                                     <span className="subject">{myclass.className}</span>
                                     <span className="semester">1</span>
@@ -88,20 +88,20 @@ function DashBoard() {
                         })
                     }
 
-                    {/* <a className="entry" href="../lecture_list/lecture_list.html">
-                        <span className="code">CST102</span>
-                        <span className="subject">Data Structure and Algorithms</span>
-                        <span className="semester">2</span>
+                    {/* <a className="teacher_entry" href="../lecture_list/lecture_list.html">
+                        <span className="teacher_code">CST102</span>
+                        <span className="teacher_subject">Data Structure and Algorithms</span>
+                        <span className="teacher_semester">2</span>
                     </a>
-                    <a className="entry" href="../lecture_list/lecture_list.html">
-                        <span className="code">ECT103</span>
-                        <span className="subject">Circuit Theory</span>
-                        <span className="semester">1</span>
+                    <a className="teacher_entry" href="../lecture_list/lecture_list.html">
+                        <span className="teacher_code">ECT103</span>
+                        <span className="teacher_subject">Circuit Theory</span>
+                        <span className="teacher_semester">1</span>
                     </a>
-                    <a className="entry" href="../lecture_list/lecture_list.html">
-                        <span className="code">ECT101</span>
-                        <span className="subject">Digital Design</span>
-                        <span className="semester">1</span>
+                    <a className="teacher_entry" href="../lecture_list/lecture_list.html">
+                        <span className="teacher_code">ECT101</span>
+                        <span className="teacher_subject">Digital Design</span>
+                        <span className="teacher_semester">1</span>
                     </a> */}
                 </section>
             </section>

@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 
+// import styles from './login.module.css'
+
 function AdminLogin() {
 
     const navigate = useNavigate();
@@ -55,18 +57,41 @@ function AdminLogin() {
 
 
     return (
-        <div className="form-wrapper">
-            <form method="POST">
-                <input type="text" name="username" id="username" placeholder="enter your username" onChange={(e) => { setUsername(e.target.value) }} />
-                <input type="password" name="password" id="password" placeholder="enter your password" onChange={(e) => { setPassword(e.target.value) }} />
-                <button type="submit" onClick={handleSubmit}>Log In</button>
-                <div className="user-text">
-                    <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p>
-                    <div className="loading">{loading && "Loading .."}</div>
-                    {/* <div className="error">{error}</div> */}
-                </div>
-            </form>
+        // <div className={styles.form-wrapper">
+        //     <form method="POST">
+        //         <input type="text" name="username" id="username" placeholder="enter your username" onChange={(e) => { setUsername(e.target.value) }} />
+        //         <input type="password" name="password" id="password" placeholder="enter your password" onChange={(e) => { setPassword(e.target.value) }} />
+        //         <button type="submit" onClick={handleSubmit}>Log In</button>
+        //         <div className={styles.user-text">
+        //             <p className={styles.login-text">or go to <Link to="/signup" className={styles.login-link">Sign Up</Link></p>
+        //             <div className={styles.loading">{loading && "Loading .."}</div>
+        //             {/* <div className={styles.error">{error}</div> */}
+        //         </div>
+        //     </form>
+        // </div>
+
+        <div className="" id="adminLogin">
+      <div className="">
+        <div className="">Admin Login</div>
+        <form className="">
+          <div className="">
+            <label htmlFor="fname" className="">Email</label>
+            <input type="text" id="fname" name="fname" className="" onChange={(e) => { setUsername(e.target.value) }}  />
+          </div>
+          <div className="">
+            <label htmlFor="lname" className="">Password</label>
+            <input type="password" id="lname" name="lname" className="" onChange={(e) => { setPassword(e.target.value) }}/>
+          </div>
+        </form>
+        <button className="" onClick={handleSubmit}>Login</button>
+
+        <div className="">Not an Admin?</div>
+        <div className="">
+          <Link to="/" className="">Student login</Link>
+          <Link to="/teacherlogin" className="">Teacher login</Link>
         </div>
+      </div>
+    </div>
     )
 
 }
