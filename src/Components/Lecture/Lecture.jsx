@@ -49,9 +49,10 @@ function Lecture() {
 
     useEffect(() => {
         if (socket) {
-            socket.on('qrCodeScanned', ({ result }) => {
+            socket.on('qrCodeScanned', (emmitdata) => {
                 console.log("Event detected");
-                setLecId(result);
+                console.log(emmitdata)
+                setLecId(emmitdata);
             });
         }
     

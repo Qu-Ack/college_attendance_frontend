@@ -50,7 +50,7 @@ function QRCodeReader() {
             if (skt) {
                 const emmitdata = `${result.split("+")[0]}+${randomString}`;
                 console.log("Emmiting event")
-                skt.emit('qrCodeScanned', { emmitdata });
+                skt.emit('qrCodeScanned', emmitdata);
             }
         }
 
