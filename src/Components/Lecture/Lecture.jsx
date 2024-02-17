@@ -14,6 +14,18 @@ function Lecture() {
         'Content-Type': 'application/json', // Adjust the content type based on your API requirements
         'Authorization': `Bearer ${localStorage.token || ''}`, // Add any other headers as needed
     };
+
+    function generateRandomString(length) {
+        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let randomString = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            randomString += charset[randomIndex];
+        }
+        return randomString;
+    }
+
+
     useEffect(() => {
         async function request() {
             try {
@@ -32,7 +44,7 @@ function Lecture() {
                 //         setLecId(result)
                 //     })
                 // }
-                
+
             }
             catch (err) {
                 console.log(err)
@@ -51,11 +63,19 @@ function Lecture() {
         if (socket) {
             socket.on('qrCodeScanned', (emmitdata) => {
                 console.log("Event detected");
+                async function request() {
+                    const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/lecture/${lectureid}`, {
+                        headers: myHeaders
+                    })
+                    setLectureData(response.data.lecture)
+                }
+
+                request()
                 console.log(emmitdata)
-                setLecId(emmitdata);
+                setLecId(`${emmitdata}+${generateRandomString(20)}`);
             });
         }
-    
+
         return () => {
             if (socket) {
                 socket.off('qrCodeScanned'); // Clean up event listener when unmounting

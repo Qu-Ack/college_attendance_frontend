@@ -36,7 +36,7 @@ function QRCodeReader() {
             const decoded = jwtDecode(localStorage.token);
             async function request() {
                 const response = await axios.post("https://collegeattendance-production.up.railway.app/api/attendance", {
-                    lectureID: `${result.split("+")[0]}+${randomString}`,
+                    lectureID: result,
                     studentID: decoded.id
                 }, {
                     headers: myHeaders
@@ -46,23 +46,23 @@ function QRCodeReader() {
             }
 
             request();
-            setScanResult(`${result.split("+")[0]}+${randomString}`)
+            setScanResult(result)
             if (skt) {
-                const emmitdata = `${result.split("+")[0]}+${randomString}`;
+                const emmitdata = result;
                 console.log("Emmiting event")
                 skt.emit('qrCodeScanned', emmitdata);
             }
         }
 
-        function generateRandomString(length) {
-            const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let randomString = '';
-            for (let i = 0; i < length; i++) {
-                const randomIndex = Math.floor(Math.random() * charset.length);
-                randomString += charset[randomIndex];
-            }
-            return randomString;
-        }
+        // function generateRandomString(length) {
+        //     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        //     let randomString = '';
+        //     for (let i = 0; i < length; i++) {
+        //         const randomIndex = Math.floor(Math.random() * charset.length);
+        //         randomString += charset[randomIndex];
+        //     }
+        //     return randomString;
+        // }
 
         function error(err) {
             console.log(err)
