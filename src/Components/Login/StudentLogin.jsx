@@ -75,30 +75,60 @@ function StudentLogin() {
     //     </div>
     //   </div>
     // </div>
-    <div className="STUDENT_WRAPPER">
-      <div className="login_mainPage" id="login_studentLogin">
-        <div className="login_loginContainer">
-          <div className="login_loginText">Student Login</div>
-          <form className="login_loginInput">
-            <div className="login_email">
-              <label htmlFor="email" className="login_text" >Student ID</label>
-              <input type="text" id="email" name="email" className="login_box" onChange={(e) => { setEmail(e.target.value) }} />
+    // <div className="STUDENT_WRAPPER">
+    //   <div className="login_mainPage" id="login_studentLogin">
+    //     <div className="login_loginContainer">
+    //       <div className="login_loginText">Student Login</div>
+    //       <form className="login_loginInput">
+    //         <div className="login_email">
+    //           <label htmlFor="email" className="login_text" >Student ID</label>
+    //           <input type="text" id="email" name="email" className="login_box" onChange={(e) => { setEmail(e.target.value) }} />
+    //         </div>
+    //         <div className="login_password">
+    //           <label htmlFor="password" className="login_text">Password</label>
+    //           <input type="password" id="password" name="password" className="login_box" onChange={(e) => { setPassword(e.target.value) }} />
+    //         </div>
+    //       </form>
+    //       <button className="login_loginButton" onClick={handleSubmit}>Login</button>
+
+    //       <div className="login_notA">Not a Student?</div>
+    //       <div className="login_otherLoginBtns">
+    //         <Link to="/teacherlogin" className="login_teacherLoginBtn">Teacher login</Link>
+    //         <Link to="/adminlogin" className="login_adminLoginBtn">Admin login</Link>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="STUDLOGIN_WRAPPER">
+      < div className="loginStudent_mainPage" id="loginStudent_studentLogin" >
+        <div className="loginStudent_loginContainer">
+          <div className="loginStudent_loginText">Student Login</div>
+          <form className="loginStudent_loginInput">
+            <div className="loginStudent_email">
+              <label htmlFor="email" className="loginStudent_text">Student ID</label>
+              <input type="text" id="email" name="email" className="loginStudent_box" onChange={(e) => { setEmail(e.target.value) }} />
             </div>
-            <div className="login_password">
-              <label htmlFor="password" className="login_text">Password</label>
-              <input type="password" id="password" name="password" className="login_box" onChange={(e) => { setPassword(e.target.value) }} />
+            <div className="loginStudent_password">
+              <label htmlFor="password" className="loginStudent_text">Password</label>
+              <input type="password" id="password" name="password" className="loginStudent_box" onChange={(e) => { setPassword(e.target.value) }} />
             </div>
           </form>
-          <button className="login_loginButton" onClick={handleSubmit}>Login</button>
+          <button className="loginStudent_loginButton" onClick={handleSubmit}>Login</button>
 
-          <div className="login_notA">Not a Student?</div>
-          <div className="login_otherLoginBtns">
-            <Link to="/teacherlogin" className="login_teacherLoginBtn">Teacher login</Link>
-            <Link to="/adminlogin" className="login_adminLoginBtn">Admin login</Link>
+          <div className="loginStudent_notA">Not a Student?</div>
+          <div className="loginStudent_otherLoginBtns">
+            <Link to="/teacherlogin" className="loginStudent_teacherLoginBtn">Teacher login</Link>
+            <Link to="/adminlogin" className="loginStudent_adminLoginBtn">Admin login</Link>
+          </div>
+          <div className="user-text">
+            {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
+            <div className="loading">{loading && "Loading .."}</div>
+            <div className="error">{error}</div>
           </div>
         </div>
-      </div>
+      </div >
     </div>
+
 
     // <div className="mainPage">
     //     <div className="loginContainer">
@@ -122,6 +152,9 @@ function StudentLogin() {
     //     </div>
     // </div>
   )
+
+
+
 }
 
 export default StudentLogin

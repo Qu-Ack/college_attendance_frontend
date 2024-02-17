@@ -1,0 +1,324 @@
+/*Menu*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --menuColor: #505050;
+    --textColor: #000000;
+    --textAltColor: #ffffff;
+    --paddingGap: 0.9em;
+    --menuTransition: 0.5s;
+
+    --studentColor: #00BBAA;
+    --studentPanelColor: #85b6b556;
+    --teacherColor: #149712;
+    --teacherPanelColor: #478b4556;
+    --adminColor: #242424;
+    --adminPanelColor: #3a3a3a3a;
+}
+
+.CREATETEACH_WRAPPER {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.AATEA_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+}
+
+/* Menu icon to corss icon*/
+.AATEA_hamburger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 0;   
+    border: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    width: 27px;
+    z-index: 99;
+}
+
+.AATEA_hamburger .AATEA_navbar, .AATEA_hamburger:after, .AATEA_hamburger::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin: 4.5px 0;
+    transition: var(--menuTransition);
+}
+
+.AATEA_hamburger.AATEA_is-active:before {
+    transform: rotate(45deg) translate(3px, 11px);
+    background-color: #FFFFFF;
+}
+
+.AATEA_hamburger.AATEA_is-active:after {
+    transform: rotate(-45deg) translate(1px, -9px);
+    background-color: #FFFFFF;
+}
+
+.AATEA_hamburger.AATEA_is-active .AATEA_navbar {
+    opacity: 0;
+}
+/**/
+
+/* Navigation Bar */
+.AATEA_navigation {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    min-height: 100vh;
+    z-index: 98;
+    background-color: var(--menuColor);
+    padding-top: 3em;
+    transition: var(--menuTransition);
+    
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+    a {
+        padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+        color: var(--textAltColor);
+        text-decoration: none;
+        border: 0;
+        transition: 0.2s;
+    }
+
+    a:hover {
+        padding: calc(0.5*var(--paddingGap)) var(--paddingGap);
+        text-decoration: none;
+    }
+}
+
+.AATEA_navigation.AATEA_is-active {
+    left: 0;
+}
+/**/
+
+/*Log Out*/
+.AATEA_logOut {
+    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    background-color: var(--menuColor);
+    color: #FFFFFF;
+    border: 0;
+    padding: 0 2em;
+    border-radius: 10em;
+    cursor: pointer;
+}
+
+/* Style The Dropdown Button */
+.AATEA_dropbtn {
+    background: none;
+    color: white;
+    font-size: 16px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+  
+  /* The container <div> - needed to position the dropdown content */
+.AATEA_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.AATEA_dropdown-content {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background-color: #353535;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.AATEA_dropdown-content a {
+    color: white;
+    padding: 13px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.AATEA_dropdown-content a:hover {
+    background-color: var(--adminPanelColor);
+}
+
+/* Show the dropdown menu on hover */
+.AATEA_dropdown:hover .AATEA_dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.AATEA_dropdown:hover {
+    background-color: var(--adminPanelColor); 
+}
+.AATEA_dropdown:hover .AATEA_dropbtn{
+    background-color: var(--adminPanelColor);  
+    background: none;
+}
+
+.AATEA_navigation .AATEA_dropdown {
+    padding: calc(0.6*var(--paddingGap)) var(--paddingGap);
+    color: var(--textAltColor);
+    border: 0;
+    transition: 0.2s;
+}
+
+
+/*Admin*/
+.CREATETEACH_WRAPPER {
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23a4a4a4' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%233d3d3d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23949494' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23373737' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23858585' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23313131' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23767676' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%232c2c2c' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23676767' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23262626' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23595959' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23212121' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/*Nav bar and Colors*/
+.AATEA_header {
+    background-color: var(--adminColor);
+}
+
+.AATEA_navigation {
+    background-color: var(--menuColor);
+    a:hover {
+        background-color: var(--adminPanelColor);
+    }
+}
+
+#AATEA_adminHamburger .AATEA_navbar, #AATEA_adminHamburger:after, #AATEA_adminHamburger:before {
+    background-color: #f2f2f2;
+}
+
+.AATEA_mainPage #AATEA_submit {
+    background-color: var(--adminColor);
+    color: #f2f2f2;
+}
+/**/
+.AATEA_mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: var(--paddingGap);
+    height: 100vh;
+    gap: 2em;
+}
+
+.AATEA_mainPage .AATEA_title {
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5em;
+}
+
+.AATEA_mainPage form {
+    display: flex;
+    flex-direction: column;
+}
+
+.AATEA_mainPage .AATEA_text {
+    font-size: 1.3em;
+    padding-bottom: 0.5em;
+    font-weight: 500;
+}
+
+.AATEA_mainPage .AATEA_box {
+    background: none;
+    border: 3px solid #929292;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    height: 35px;
+    font-size: 1.1em;
+    margin-bottom: 2em;
+    width: 300px;
+}
+
+.AATEA_mainPage .AATEA_box:focus {
+    outline: 0;
+    border-bottom: 3px solid orange;
+}
+
+.AATEA_mainPage #AATEA_submit {
+    display: flex;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 3em;
+    border: 2px solid var(--primaryColor);
+    border-radius: 3em;
+    width: 200px;
+}
+
+.AATEA_mainPage .AATEA_selectList {
+    padding: 0.5em 0;
+    margin: 0.5em 0.1em 1.5em;
+}
+
+/*Form specific elements*/
+#AATEA_subjectName {
+    width: 90vw;
+}
+
+/**/
+#AATEA_adminDashboard {
+    display: flex;
+    flex-direction: column;
+    margin: var(--paddingGap) var(--paddingGap);
+    gap: var(--paddingGap);
+}
+
+#AATEA_adminDashboard > .AATEA_profile {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: calc(100vw - 2*var(--paddingGap));
+
+    border-radius: 0.7em;
+    background-color: var(--adminPanelColor);
+}
+
+#AATEA_adminDashboard > .AATEA_profile > .AATEA_profilePic {
+    height: 8em;
+    border-radius: 50%;
+}
+
+#AATEA_adminDashboard > .AATEA_profile > .AATEA_profileText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+}
+
+#AATEA_adminDashboard > .AATEA_profile > .AATEA_profileText > .AATEA_name {
+    font-size: 1.7em;
+    font-weight: 600;
+    padding-bottom: 0.2em;
+}
+
+#AATEA_adminDashboard > .AATEA_profile > .AATEA_profileText > .AATEA_designation,
+#AATEA_adminDashboard > .AATEA_profile > .AATEA_profileText > .AATEA_department {
+    font-weight: 500;
+}
+

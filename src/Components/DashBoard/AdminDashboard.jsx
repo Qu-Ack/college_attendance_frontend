@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom"
+import profilePic from './images/temp.png'
+import '../AdminNaV/Adminnav.css'
 
 function AdminDashBoard() {
-    return(
+    return (
         <>
-        <Link to="/admin/createclass">Create Class</Link>
-        <br />
-        <Link to="/admin/createteacher">Create Teacher</Link>
-        <br />
-        <Link to='/admin/assignstudenttoclass'>Assign Student TO Class</Link>
-        <br />
-        <Link to='/admin/assignteachertoclass'>Assign Teacher To Class</Link>
-        <br />
-        <Link to='/admin/createstudent'>Create Student</Link>
+            <section className="A_mainPage" id="A_adminDashboard">
+                <section className="A_profile">
+                    <img className="A_profilePic" src={profilePic} alt="Your Profile Pic" />
+                    <div className="A_profileText">
+                        <div className="A_name">John Doe</div>
+                        <div className="A_designation">ADMIN</div>
+                        <div className="A_department">Department of CSE</div>
+                    </div>
+                </section>
+            </section>
         </>
 
     )

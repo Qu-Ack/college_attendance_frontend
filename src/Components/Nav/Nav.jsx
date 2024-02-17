@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import '../Login/login.css'
 // import { useState } from "react";
 // Import React and CSS
+import '../Login/loginteacher.css'
 import '../DashBoard/teacher_dashboard.css'
 import '../DashBoard/student_dashboard.css'
 import { useEffect } from "react";
@@ -51,8 +52,8 @@ const Nav = () => {
       setHeaderClass('SD_header');
       setLogoutClass('SD_logOut')
     } else {
-      setHeaderClass('login_header');
-      setLogoutClass('login_logOut')
+      setHeaderClass('loginStudent_header');
+      setLogoutClass('loginStudent_logOut')
     }
   }, [decoded]);
   
@@ -60,15 +61,15 @@ const Nav = () => {
   return (
     <div>
       <header className={headerClass}>
-        <button className={`login_hamburger ${isActive ? 'login_is-active' : ''}`} onClick={toggleMenu}>
-          <div className="login_navbar"></div>
+        <button className={`loginStudent_hamburger ${isActive ? 'loginStudent_is-active' : ''}`} onClick={toggleMenu}>
+          <div className="loginStudent_navbar"></div>
         </button>
         {localStorage.token && <button onClick={handleLogout}className={logoutClass}>Log Out</button>}
       </header>
 
-        <nav className={`login_navigation ${isActive ? 'login_is-active' : ''}`}>
+        <nav className={`loginStudent_navigation ${isActive ? 'loginStudent_is-active' : ''}`}>
         {
-          decoded && decoded.role == 'student' ? <Link to="/aboutus" className="login_aboutUs">About Us</Link> : <Link className="login_aboutUs" to="/aboutus">{decoded && decoded.teacherName}
+          decoded && decoded.role == 'student' ? <Link to="/aboutus" className="loginStudent_aboutUs">About Us</Link> : <Link className="loginStudent_aboutUs" to="/aboutus">{decoded && decoded.teacherName}
         About Us</Link> 
         }
         

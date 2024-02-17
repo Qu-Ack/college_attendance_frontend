@@ -22,6 +22,7 @@ import AddStudentToClass from './Components/AssignStudentToClass/AssignStudentTo
 import AssignTeacherToClass from './Components/AssignteacToClass/AssignTeacherToClass.jsx'
 import CreateStudent from './Components/CreateStudent/CreateStudent.jsx'
 import AboutUs from './Components/AboutUs/AboutUs.jsx'
+import AdminNav from './Components/AdminNaV/AdminNav.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -60,38 +61,70 @@ const router = createBrowserRouter([
       },
       {
         path:'/adminlogin',
-        element:<AdminLogin/>
-      }, {
-        path:'/admindashboard',
-        element:<AdminDashBoard/>
-      }
+        element:<AdminLogin/>},
+      // }path:'/admindashboard',
+      //   element:<AdminDashBoard/>
+      // }, {
+        
 
-      ,{
-        path:'/admin/createclass',
-        element:<CreateClass/>
-      },
-      {
-        path:'/admin/createteacher',
-        element:<CreateTeacher/>
-      },
-      {
-        path:'/admin/assignstudenttoclass',
-        element:<AddStudentToClass/>
-      },
-      {
-        path:'/admin/assignteachertoclass',
-        element:<AssignTeacherToClass/>
-      },
-      {
-        path:'/admin/createstudent',
-        element:<CreateStudent/>
-      },
+      // ,{
+      //   path:'/admin/createclass',
+      //   element:<CreateClass/>
+      // },
+      // {
+      //   path:'/admin/createteacher',
+      //   element:<CreateTeacher/>
+      // },
+      // {
+      //   path:'/admin/assignstudenttoclass',
+      //   element:<AddStudentToClass/>
+      // },
+      // {
+      //   path:'/admin/assignteachertoclass',
+      //   element:<AssignTeacherToClass/>
+      // },
+      // {
+      //   path:'/admin/createstudent',
+      //   element:<CreateStudent/>
+      // },
       {
         path:'/aboutus',
         element:<AboutUs/>
       }
     ]
   },
+
+  {
+    path:'/admin',
+    element:<AdminNav/>,
+    children:[
+      {
+        index:true,
+        element:<AdminDashBoard/>
+      },
+      {
+        path:'createclass',
+        element:<CreateClass/>,
+      },
+      {
+        path:'createteacher',
+        element:<CreateTeacher/>
+
+      }, 
+      {
+        path:'assignstudenttoclass',
+        element: <AddStudentToClass/>
+      },
+      {
+        path:'assignteachertoclass',
+        element:<AssignTeacherToClass/>
+      },
+      {
+        path:'createstudent',
+        element:<CreateStudent/>
+      }
+    ]
+  }
 
   // {
   //   path:'/dashboard/:id',

@@ -2,11 +2,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /*Background*/
-
-body {
-    margin:0;
-    padding:0;
+.TEACHERLOGIN_WRAPPER {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
+.loginTeacher_header {
+    background-color: #5f0f01;
+}
+
+.loginTeacher_loginContainer {
+    color: rgba(255, 255, 255, 0.849);
+}
+
+.loginTeacher_loginContainer .loginTeacher_loginText {
+    color: white;
+}
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginInput .box {
+    color: white;
+}
+
+.loginTeacher_navigation {
+    opacity: 0.9;
+}
+
+/* Log In */
+.loginTeacher_mainPage,
+#loginTeacher_teacherLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+
+.loginTeacher_loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 0.5rem;
+    height: 450px;
+    width: 320px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.185);
+    margin-bottom: 3em; /*remove to perfectly center*/
+}
+
+.loginTeacher_loginContainer {
+    background-color: rgba(0, 0, 0, 0.482);
+    /* backdrop-filter: blur(1px); */
+}
+
+.loginTeacher_loginContainer .loginTeacher_loginText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.loginTeacher_loginContainer .loginTeacher_loginInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(2*var(--paddingGap));
+    gap: 15px;
+}
+
+.loginTeacher_loginContainer .loginTeacher_loginInput .loginTeacher_email,
+.loginTeacher_loginContainer .loginTeacher_loginInput .loginTeacher_password
+{
+    display: flex;
+    flex-direction: column; 
+    gap: 7px;
+}
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginInput .loginTeacher_text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginInput .loginTeacher_box {
+    border: 3px solid #c5c5c5;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    height: 35px;
+    font-size: 1.1em;
+    background: none;
+    color: white;
+}
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginInput .loginTeacher_box:focus {
+    outline: 0;
+    border-bottom: 3px solid orange;
+} 
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginButton {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--textAltColor);
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 3em;
+    border: 2px solid rgba(255, 255, 255, 0.849);
+    border-radius: 2em;
+    width: 50px;
+    font-size: 1em;
+}
+
+.loginTeacher_mainPage .loginTeacher_loginContainer .loginTeacher_loginButton:hover {
+    border-color: orange;
+    background-color: rgba(255, 255, 255, 0.128);
+}
+
+.loginTeacher_notA {
+    margin: 1.5em 0 0.5em 0;
+    align-self: center;
+}
+
+.loginTeacher_otherLoginBtns {
+    display: flex;
+    gap: 3em;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.loginTeacher_teacherLoginBtn,
+.loginTeacher_adminLoginBtn,
+.loginTeacher_studentLoginBtn {
+    cursor: pointer;
+}
+
+.loginTeacher_teacherLoginBtn:hover,
+.loginTeacher_adminLoginBtn:hover,
+.loginTeacher_studentLoginBtn:hover {
+    color: orange;
+    text-decoration: orange underline;
+}
+
+.loginTeacher_teacherLoginBtn:focus,
+.loginTeacher_adminLoginBtn:focus,
+.loginTeacher_studentLoginBtn:focus {
+    color: orange;
+    text-decoration: orange underline;
+}
+
+/*Menu*/
+
 
 :root {
     --menuColor: #505050;
@@ -22,162 +170,8 @@ body {
     --adminColor: #242424;
     --adminPanelColor: #3a3a3a3a;
 }
-.STUDLOGIN_WRAPPER {
-    background-image: url("background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
 
-.loginStudent_header {
-    background-color: #5f0f01;
-}
-
-.loginStudent_loginContainer {
-    color: rgba(255, 255, 255, 0.849);
-}
-
-.loginStudent_loginContainer .loginStudent_loginText {
-    color: white;
-}
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginInput .box {
-    color: white;
-}
-
-.loginStudent_navigation {
-    opacity: 0.9;
-}
-
-/* Log In */
-.loginStudent_mainPage,
-#loginStudent_studentLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-.loginStudent_loginContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    border-radius: 0.5rem;
-    height: 450px;
-    width: 320px;
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.185);
-    margin-bottom: 3em; /*remove to perfectly center*/
-}
-
-.loginStudent_loginContainer {
-    background-color: rgba(0, 0, 0, 0.482);
-    /* backdrop-filter: blur(1px); */
-}
-
-.loginStudent_loginContainer .loginStudent_loginText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    font-weight: 700;
-}
-
-.loginStudent_loginContainer .loginStudent_loginInput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: calc(2*var(--paddingGap));
-    gap: 15px;
-}
-
-.loginStudent_loginContainer .loginStudent_loginInput .loginStudent_email,
-.loginStudent_loginContainer .loginStudent_loginInput .loginStudent_password
-{
-    display: flex;
-    flex-direction: column; 
-    gap: 7px;
-}
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginInput .loginStudent_text {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginInput .loginStudent_box {
-    border: 3px solid #c5c5c5;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    height: 35px;
-    font-size: 1.1em;
-    background: none;
-    color: white;
-}
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginInput .loginStudent_box:focus {
-    outline: 0;
-    border-bottom: 3px solid orange;
-} 
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginButton {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    background-color: rgba(255, 255, 255, 0);
-    color: var(--textAltColor);
-    border: 0;
-    cursor: pointer;
-    padding: 0.5em 3em;
-    border: 2px solid rgba(255, 255, 255, 0.849);
-    border-radius: 2em;
-    width: 50px;
-    font-size: 1em;
-}
-
-.loginStudent_mainPage .loginStudent_loginContainer .loginStudent_loginButton:hover {
-    border-color: orange;
-    background-color: rgba(255, 255, 255, 0.128);
-}
-
-.loginStudent_notA {
-    margin: 1.5em 0 0.5em 0;
-    align-self: center;
-}
-
-.loginStudent_otherLoginBtns {
-    display: flex;
-    gap: 3em;
-    align-self: center;
-    text-decoration: underline;
-}
-
-.loginStudent_teacherLoginBtn,
-.loginStudent_adminLoginBtn,
-.loginStudent_studentLoginBtn {
-    cursor: pointer;
-}
-
-.loginStudent_teacherLoginBtn:hover,
-.loginStudent_adminLoginBtn:hover,
-.loginStudent_studentLoginBtn:hover {
-    color: orange;
-    text-decoration: orange underline;
-}
-
-.loginStudent_teacherLoginBtn:focus,
-.loginStudent_adminLoginBtn:focus,
-.loginStudent_studentLoginBtn:focus {
-    color: orange;
-    text-decoration: orange underline;
-}
-
-/*Menu*/
-
-
-
-
-.STUDLOGIN_WRAPPER {
+.TEACHERLOGIN_WRAPPER {
     font-family: 'Manrope', 'Inter', Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -186,7 +180,7 @@ body {
     height: 100vh;
 }
 
-.loginStudent_header {
+.loginTeacher_header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -195,7 +189,7 @@ body {
 }
 
 /* Menu icon to crosss icon*/
-.loginStudent_hamburger {
+.loginTeacher_hamburger {
     position: relative;
     display: block;
     cursor: pointer;
@@ -208,7 +202,7 @@ body {
     z-index: 99;
 }
 
-.loginStudent_hamburger .loginStudent_navbar, .loginStudent_hamburger:after, .loginStudent_hamburger::before {
+.loginTeacher_hamburger .loginTeacher_navbar, .loginTeacher_hamburger:after, .loginTeacher_hamburger::before {
     display: block;
     content: '';
     width: 100%;
@@ -218,23 +212,23 @@ body {
     transition: var(--menuTransition);
 }
 
-.loginStudent_hamburger.loginStudent_is-active:before {
+.loginTeacher_hamburger.loginTeacher_is-active:before {
     transform: rotate(45deg) translate(3px, 11px);
     background-color: #FFFFFF;
 }
 
-.loginStudent_hamburger.loginStudent_is-active:after {
+.loginTeacher_hamburger.loginTeacher_is-active:after {
     transform: rotate(-45deg) translate(1px, -9px);
     background-color: #FFFFFF;
 }
 
-.loginStudent_hamburger.loginStudent_is-active .loginStudent_navbar {
+.loginTeacher_hamburger.loginTeacher_is-active .loginTeacher_navbar {
     opacity: 0;
 }
 /**/
 
 /* Navigation Bar */
-.loginStudent_navigation {
+.loginTeacher_navigation {
     position: fixed;
     top: 0;
     left: -100%;
@@ -264,13 +258,13 @@ body {
     }
 }
 
-.loginStudent_navigation.loginStudent_is-active {
+.loginTeacher_navigation.loginTeacher_is-active {
     left: 0;
 }
 /**/
 
 /*Log Out*/
-.loginStudent_logOut {
+.loginTeacher_logOut {
     font-family: 'Manrope', 'Inter', Arial, sans-serif;
     background-color: var(--menuColor);
     color: #FFFFFF;
