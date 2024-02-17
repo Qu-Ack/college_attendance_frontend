@@ -11,6 +11,7 @@ import io from 'socket.io-client'
 function QRCodeReader() {
 
     const [scanResult, setScanResult] = useState(null);
+    const [sts, setStatusCode] = useState(false)
     const [socket, setSocket] = useState(null)
     const navigate = useNavigate();
     const myHeaders = {
@@ -45,7 +46,7 @@ function QRCodeReader() {
                 })
 
                 if (response.status == 500) {
-                    navigate('/invalidqr')
+                    setStatusCode(true)
                 }
                 // if (response.data.error == 'undefined') {
                 //     return (
@@ -98,6 +99,16 @@ function QRCodeReader() {
     }, [])
 
 
+    if(sts) {
+        setStatusCode(false)
+        return(
+            <>
+            <h1>Invalid Qr</h1>
+            <Link to="/reader">Scan Again</Link>
+            <Link to={`/studdashboard/${decoded.id}`}></Link>
+            </>
+        )
+    }
 
 
     return (
