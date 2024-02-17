@@ -71,9 +71,9 @@ function Lecture() {
                 }
 
                 request()
-                // console.log(emmitdata)
+                console.log(emmitdata)
                 setLecId(`${emmitdata.split("+")[0]}+${generateRandomString(20)}`);
-                console.log(lecid)
+                // console.log(lecid)
             }); 
         }
 
