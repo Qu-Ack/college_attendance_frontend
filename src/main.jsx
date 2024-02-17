@@ -28,6 +28,11 @@ const router = createBrowserRouter([
     element: <Nav/>,
     children:[
       {
+        path:'/dashboard/:id',
+        element:<DashBoard/>
+      },
+    
+      {
         path:'/myclasses/:classid',
         element:<Class/>,
     
