@@ -33,7 +33,7 @@ function QRCodeReader() {
 
         function success(result) {
             scanner.clear();
-            const randomString = generateRandomString(10);
+            // const randomString = generateRandomString(10);
             const decoded = jwtDecode(localStorage.token);
             async function request() {
                 const response = await axios.post("https://collegeattendance-production.up.railway.app/api/attendance", {
