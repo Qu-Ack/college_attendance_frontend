@@ -36,7 +36,7 @@ function CreateStudent() {
 
     return (
         <form method="POST">
-            <input type="text" name="studentName" id="name" value={teacherName} onChange={(e) => {setStudentName(e.target.value)}} placeholder="Enter the name of the Teacher"/>
+            <input type="text" name="studentName" id="name" value={studentName} onChange={(e) => {setStudentName(e.target.value)}} placeholder="Enter the name of the Teacher"/>
             <input type="text" name="studentid" id="course_code" value={studentid} onChange={(e) => {setStudentId(e.target.value)}} placeholder="Enter the username"></input>
             {/* <input type="text" name="section" value={section} id="section" onChange={(e) => {setSection(e.target.value)}} placeholder="enter the section"></input> */}
             <input type="password" name="password" id="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter the password" />
