@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+
 function AssignTeacherToClass() {
     const [teachers, setTeachers] = useState([]);
     const [classes, setClasses] = useState([]);
