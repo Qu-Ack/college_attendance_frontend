@@ -168,7 +168,7 @@ function Lecture() {
         <div className="LAT_WRAPPER">
             <section className="LAT_mainPage">
                 <h1 className="LAT_subjectName">{classData.classCode} - {classData.className}</h1>
-                {/* <h2 className="LAT_lectureNumber">Lecture Number : 1</h2> */}
+                <h2 className="LAT_lectureNumber">{lectureData.lectureName}</h2>
                 <div className="LAT_QRcontainer">
                     <div className="LAT_detailsContainer">
                         <h3>Class details:</h3>
