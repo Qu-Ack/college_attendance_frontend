@@ -44,7 +44,9 @@ function DashBoard() {
 
     if (loading) {
         return (
-            <h1 className="loading_screen">Loading...</h1>
+            <div className="TD_WRAPPER">
+                <h1 className="loading_screen">Loading...</h1>
+            </div>
         )
     }
 

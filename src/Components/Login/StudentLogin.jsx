@@ -44,7 +44,10 @@ function StudentLogin() {
       } else if (typeof response.data.token != 'undefined') {
         localStorage.token = response.data.token;
         const decoded = jwtDecode(localStorage.token)
-        
+        if (decoded.role == 'student') {
+          navigate(`/studdashboard/${decoded.id}`)
+        }
+
       } else {
         // console.log(response.data.errors)
         setError(response.data.errors);

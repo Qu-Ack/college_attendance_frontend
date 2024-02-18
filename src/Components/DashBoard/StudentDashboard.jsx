@@ -34,7 +34,7 @@ function StudentDashboard() {
     }, [])
 
     if (loading) {
-        return <h1 className="loading_screen">Loading ...</h1>
+        return <div className="STUD_WRAPPER"><h1 className="loading_screen">Loading ...</h1></div>
     }
 
     return (

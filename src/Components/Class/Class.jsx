@@ -18,6 +18,7 @@ function Class() {
     async function handleClick(e) {
         e.preventDefault();
         console.log(myHeaders)
+        setLoading(true)
         const response = await axios.post(`https://collegeattendance-production.up.railway.app/api/class/lecture/${classid}`, {
             lecture_name: lectureName
         }, { headers: myHeaders });
@@ -25,6 +26,7 @@ function Class() {
         console.log(response)
         const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, { headers: myHeaders })
         console.log(response.data)
+        setLoading(false)
         setmyClass(response2.data.cls)
     }
 
@@ -62,7 +64,9 @@ function Class() {
 
     if (loading) {
         return (
-            <h1 className="loading_screen">Loading ...</h1>
+            <div className="Ll_">
+                <h1 className="loading_screen">Loading ...</h1>
+            </div>
         )
     }
     console.log(myclass)
@@ -75,7 +79,7 @@ function Class() {
                 {/* Uncomment if needed */}
                 {/* <h2 className="Ll_section">Section A</h2> */}
                 <form method="POST" className="Ll_FORM">
-                    <input type="text" className="Ll_INPUT" name="lecture_name" id="lecture_name" placeholder="Enter Lecture Title" value={lectureName} onChange={(e) => { setLectureName(e.target.value) }} />
+                    <input type="text" className="Ll_INPUT" name="lecture_name" id="lecture_name" placeholder="Enter Lecture Title" value={lectureName} onChange={(e) => { setLectureName(e.target.value) }} required />
                     <button className="Ll_scheduleLecture" onClick={handleClick}>Schedule Lecture</button>
                 </form>
 

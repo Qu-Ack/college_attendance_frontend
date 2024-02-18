@@ -39,7 +39,7 @@ function Lecture() {
                     headers: myHeaders
                 })
                 const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, {
-                    headers:myHeaders
+                    headers: myHeaders
                 })
                 setLoading(false)
                 setLectureData(response.data.lecture)
@@ -118,9 +118,11 @@ function Lecture() {
         return `${hours}:${minutes}`;
     }
 
-    if(loading) {
-        return(
-            <h1 className="loading_screen">Loading ...</h1>
+    if (loading) {
+        return (
+            <div className="LAT_WRAPPER">
+                <h1 className="loading_screen">Loading ...</h1>
+            </div>
         )
     }
 
