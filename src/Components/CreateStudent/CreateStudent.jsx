@@ -19,6 +19,9 @@ function CreateStudent() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true)
+        setError("")
+        setData("")
         const response = await axios.post("https://collegeattendance-production.up.railway.app/api/signup", {
             name: studentName,
             studentid,
@@ -28,6 +31,7 @@ function CreateStudent() {
             headers: myHeaders
         })
         console.log(response.data)
+        setLoading(false)
         if (typeof response.data.errors != 'undefined') {
             setError(response.data.errors[0].msg);
           } else if (typeof response.data.errors == 'undefined') { 
