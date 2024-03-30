@@ -11,7 +11,7 @@ username=>admin
 password=>admin123
 
 *sample teacher credentials*
-username=>sarthak
+username=>dakshsangal
 password=>12345678
 
 *sample student credentials*
