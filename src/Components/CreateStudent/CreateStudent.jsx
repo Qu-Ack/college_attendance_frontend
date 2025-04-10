@@ -22,7 +22,7 @@ function CreateStudent() {
         setLoading(true)
         setError("")
         setData("")
-        const response = await axios.post("https://collegeattendance-production.up.railway.app/api/signup", {
+        const response = await axios.post("http://localhost:5000/api/signup", {
             name: studentName,
             studentid,
             password,

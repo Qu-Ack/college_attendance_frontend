@@ -19,7 +19,7 @@ function StudentDashboard() {
         async function request() {
             try {
                 setLoading(true)
-                const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/student/${studid}`, {
+                const response = await axios.get(`http://localhost:5000/api/student/${studid}`, {
                     headers: myHeaders
                 })
                 setLoading(false)

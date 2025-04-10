@@ -21,8 +21,8 @@ function AddStudentToClass() {
         // Fetch students and classes from backend API
         const fetchStudentsAndClasses = async () => {
             try {
-                const studentsResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_students', { headers: myHeaders });
-                const classesResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_classes', { headers: myHeaders });
+                const studentsResponse = await axios.get('http://localhost:5000/api/get_students', { headers: myHeaders });
+                const classesResponse = await axios.get('http://localhost:5000/api/get_classes', { headers: myHeaders });
                 setStudents(studentsResponse.data.students);
                 console.log(studentsResponse.data)
                 console.log(classesResponse.data)
@@ -41,7 +41,7 @@ function AddStudentToClass() {
             setLoading(true)
             setError("")
             // setData("")
-            const response = await axios.post('https://collegeattendance-production.up.railway.app/api/addstudtoclass', {
+            const response = await axios.post('http://localhost:5000/api/addstudtoclass', {
                 studentID: selectedStudent,
                 classID: selectedClass
             });

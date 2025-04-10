@@ -20,7 +20,7 @@ function QRCodeReader() {
     };
     useEffect(() => {
 
-        const skt = io("https://collegeattendance-production.up.railway.app/");
+        const skt = io("http://localhost:5000/");
         setSocket(skt);
         console.log(skt)
 
@@ -38,7 +38,7 @@ function QRCodeReader() {
             // const randomString = generateRandomString(10);
             const decoded = jwtDecode(localStorage.token);
             async function request() {
-                const response = await axios.post("https://collegeattendance-production.up.railway.app/api/attendance", {
+                const response = await axios.post("http://localhost:5000/api/attendance", {
                     lectureID: result,
                     studentID: decoded.id
                 }, {

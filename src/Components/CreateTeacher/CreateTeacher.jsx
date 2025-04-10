@@ -23,7 +23,7 @@ function CreateTeacher() {
         setLoading(true)
         setError("")
         setData("")
-        const response = await axios.post("https://collegeattendance-production.up.railway.app/api/teacher", {
+        const response = await axios.post("http://localhost:5000/api/teacher", {
             teacherName,
             username,
             password,

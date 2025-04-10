@@ -18,7 +18,7 @@ function CreateClass() {
     async function handleSubmit(e) {
         e.preventDefault();
         setLoading(true)
-        const response = await axios.post("https://collegeattendance-production.up.railway.app/api/class", {
+        const response = await axios.post("http://localhost:5000/api/class", {
             className,
             classCode,
         }, {

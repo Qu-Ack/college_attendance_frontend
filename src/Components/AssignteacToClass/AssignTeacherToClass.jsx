@@ -24,10 +24,10 @@ function AssignTeacherToClass() {
             try {
 
 
-                const teachersResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_teachers', {
+                const teachersResponse = await axios.get('http://localhost:5000/api/get_teachers', {
                     headers: myHeaders
                 });
-                const classesResponse = await axios.get('https://collegeattendance-production.up.railway.app/api/get_classes', {
+                const classesResponse = await axios.get('http://localhost:5000/api/get_classes', {
                     headers: myHeaders
                 });
                 setTeachers(teachersResponse.data.teachers);
@@ -48,7 +48,7 @@ function AssignTeacherToClass() {
             setLoading(true)
             setData("")
             setError("")
-            const response = await axios.put('https://collegeattendance-production.up.railway.app/api/teachertoclass', {
+            const response = await axios.put('http://localhost:5000/api/teachertoclass', {
                 teacherID: selectedTeacher,
                 classID: selectedClass
             });

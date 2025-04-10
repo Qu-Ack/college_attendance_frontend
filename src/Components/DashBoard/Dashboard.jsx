@@ -16,7 +16,7 @@ function DashBoard() {
     const [loading, setLoading] = useState(false);
 
     const { id } = useParams();
-    const baseurl = `https://collegeattendance-production.up.railway.app/api/class/${id}`
+    const baseurl = `http://localhost:5000/api/class/${id}`
 
 
     const myHeaders = {

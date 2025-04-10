@@ -19,12 +19,12 @@ function Class() {
         e.preventDefault();
         console.log(myHeaders)
         setLoading(true)
-        const response = await axios.post(`https://collegeattendance-production.up.railway.app/api/class/lecture/${classid}`, {
+        const response = await axios.post(`http://localhost:5000/api/class/lecture/${classid}`, {
             lecture_name: lectureName
         }, { headers: myHeaders });
 
         console.log(response)
-        const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, { headers: myHeaders })
+        const response2 = await axios.get(`http://localhost:5000/api/singleclass/${classid}`, { headers: myHeaders })
         console.log(response.data)
         setLoading(false)
         setmyClass(response2.data.cls)
@@ -33,7 +33,7 @@ function Class() {
     useEffect(() => {
         async function request() {
             setLoading(true)
-            const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, {
+            const response = await axios.get(`http://localhost:5000/api/singleclass/${classid}`, {
                 headers: myHeaders
             })
             setLoading(false)

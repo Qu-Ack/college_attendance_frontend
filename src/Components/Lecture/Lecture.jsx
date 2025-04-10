@@ -33,12 +33,12 @@ function Lecture() {
         async function request() {
             try {
                 setLoading(true)
-                const skt = io("https://collegeattendance-production.up.railway.app/")
+                const skt = io("http://localhost:5000/")
                 setSocket(skt)
-                const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/lecture/${lectureid}`, {
+                const response = await axios.get(`http://localhost:5000/api/lecture/${lectureid}`, {
                     headers: myHeaders
                 })
-                const response2 = await axios.get(`https://collegeattendance-production.up.railway.app/api/singleclass/${classid}`, {
+                const response2 = await axios.get(`http://localhost:5000/api/singleclass/${classid}`, {
                     headers: myHeaders
                 })
                 setLoading(false)
@@ -73,7 +73,7 @@ function Lecture() {
             socket.on('qrCodeScanned', (emmitdata) => {
                 console.log("Event detected");
                 async function request() {
-                    const response = await axios.get(`https://collegeattendance-production.up.railway.app/api/lecture/${lectureid}`, {
+                    const response = await axios.get(`http://localhost:5000/api/lecture/${lectureid}`, {
                         headers: myHeaders
                     })
                     setLectureData(response.data.lecture)
