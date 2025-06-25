@@ -1,9 +1,9 @@
-import axios from "axios"
-import { useState } from "react"
+import axios from "axios";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
-import './loginteacher.css'
+import "./loginteacher.css";
 // import styles from './login.module.css'
 // import './login.css'
 
@@ -14,10 +14,9 @@ function TeacherLogin() {
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   useEffect(() => {
     const token = localStorage.token;
-    if (token && typeof token === 'string') {
+    if (token && typeof token === "string") {
       const decoded = jwtDecode(token);
       navigate(`/dashboard/${decoded.id}`);
     }
@@ -28,33 +27,32 @@ function TeacherLogin() {
     setError("");
     setLoading(true);
     try {
-
-      const response = await axios.post("http://localhost:5000/api/teacher/login", {
-        username,
-        password
-      })
-      console.log(response)
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/teacher/login`,
+        {
+          username,
+          password,
+        },
+      );
+      console.log(response);
       setLoading(false);
-      if (typeof response.data.errors != 'undefined') {
+      if (typeof response.data.errors != "undefined") {
         setError(response.data.errors);
-      } else if (typeof response.data.token != 'undefined') {
+      } else if (typeof response.data.token != "undefined") {
         localStorage.token = response.data.token;
-        const decoded = jwtDecode(localStorage.token)
-        navigate(`/dashboard/${decoded.id}`)
+        const decoded = jwtDecode(localStorage.token);
+        navigate(`/dashboard/${decoded.id}`);
       } else {
         // console.log(response.data.errors)
         setError(response.data);
-        console.log(error)
-
+        console.log(error);
       }
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     }
   }
 
-
   return (
-
     // <div className="login_mainPage" id="login_teacherLogin">
     //   <div className="login_loginContainer">
     //     <div className="login_loginText">Teacher Login</div>
@@ -107,20 +105,46 @@ function TeacherLogin() {
           <div className="loginTeacher_loginText">Teacher Login</div>
           <form className="loginTeacher_loginInput" method="POST">
             <div className="loginTeacher_email">
-              <label htmlFor="email" className="loginTeacher_text">Username</label>
-              <input type="text" id="email" name="email" className="loginTeacher_box" onChange={(e) => { setEmail(e.target.value) }} />
+              <label htmlFor="email" className="loginTeacher_text">
+                Username
+              </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                className="loginTeacher_box"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
             <div className="loginTeacher_password">
-              <label htmlFor="password" className="loginTeacher_text">Password</label>
-              <input type="password" id="password" name="password" className="loginTeacher_box" onChange={(e) => { setPassword(e.target.value) }} />
+              <label htmlFor="password" className="loginTeacher_text">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="loginTeacher_box"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </div>
           </form>
-          <button className="loginTeacher_loginButton" onClick={handleSubmit}>Login</button>
+          <button className="loginTeacher_loginButton" onClick={handleSubmit}>
+            Login
+          </button>
 
           <div className="loginTeacher_notA">Not a Teacher?</div>
           <div className="loginTeacher_otherLoginBtns">
-            <Link to="/" className="loginTeacher_studentLoginBtn">Student login</Link>
-            <Link to="/adminlogin" className="loginTeacher_adminLoginBtn">Admin login</Link>
+            <Link to="/" className="loginTeacher_studentLoginBtn">
+              Student login
+            </Link>
+            <Link to="/adminlogin" className="loginTeacher_adminLoginBtn">
+              Admin login
+            </Link>
           </div>
           <div className="user-text">
             {/* <p className="login-text">or go to <Link to="/signup" className="login-link">Sign Up</Link></p> */}
@@ -130,10 +154,8 @@ function TeacherLogin() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-
 
 // <div className="form-wrapper">
 //     <form method="POST">
@@ -148,5 +170,5 @@ function TeacherLogin() {
 //     </form>
 // </div>
 
+export default TeacherLogin;
 
-export default TeacherLogin
